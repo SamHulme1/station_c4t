@@ -21,7 +21,15 @@ mongo = PyMongo(app)
 @app.route("/get_citizens")
 def get_citizens():
     citizens = mongo.db.citizens.find()
-    return render_template("citizens.html", citizens=citizens)
+    return render_template(
+        "citizens.html", citizens=citizens)
+
+
+@app.route("/get_ships")
+def get_ships():
+    ships = mongo.db.ships.find()
+    return render_template(
+        "ships.html", ships=ships)
 
 
 if __name__ == "__main__":
