@@ -1,0 +1,39 @@
+img {
+    border-radius: 50%;
+    width:100%
+}
+
+button {
+    border: none;
+    color: none;
+    border-radius: 50%;
+}
+
+.glow-font-small {
+    font-family: "Audiowide", sans-serif;
+    color: white;
+    text-shadow: 1px 1px rgba(63, 200, 205, 1 );
+}
+button:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0 );
+}
+
+img:hover {
+    box-shadow: 5px 1px 5px 1px rgba(63, 200, 205, 1 );
+    background-color: none;
+}
+
+.content {
+    display: none;
+    overflow: hidden;
+    background-color: rgba(63, 200, 205, 1 );
+    border-radius:5px;
+    z-index: 2;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+ul {
+    border-radius: 200em;
+}
