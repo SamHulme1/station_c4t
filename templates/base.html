@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StationC4t</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+    <script src="https://kit.fontawesome.com/bdd19e9f82.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+</head>
+
+<body>
+    <!-- Materialize navbar desktop and mobile -->
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('get_citizens') }}">Citizen data</a></li>
+                <li><a href="{{ url_for('get_ships') }}">Ships</a></li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('get_citizens') }}">Citizen data</a></li>
+        <li><a href="{{ url_for('get_ships') }}">Ships</a></li>
+    </ul>
+    <!-- Main page contents -->
+    <div class="container-fluid">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+    <!-- custom materialize footer -->
+    <footer class="page-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">
+                        <span><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"
+                                    aria-hidden="true"></i><span class="sr-only">facebook link</span></a></span>
+                        <span><a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"
+                                    aria-hidden="true"></i><span class="sr-only">github link</span></a></span>
+                        <span><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"
+                                    aria-hidden="true"></i><span class="sr-only">linkedin link</span></a></span>
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/js/scripts.js') }}"></script>
+</body>

@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <div class="container-fluid">
         <div class="row">
             {% for citizen in citizens %}
@@ -22,10 +12,17 @@
                                 </button>
                                 <div class="content">
                                     <ul class="glow-font-small">
-                                        <li>Name: {{pirates.name}}</li>
-                                        <li>Job: {{pirates.job}}</li>
-                                        <li>Fur: {{pirates.fur}}</li>
-                                        <li>Unique Feature: {{pirates.uniquef}}</li>
+                                        {% if pirates.uniquef == null%}
+                                            <li>Name: {{pirates.name}}</li>
+                                            <li>Job: {{pirates.job}}</li>
+                                            <li>Fur: {{pirates.fur}}</li>
+                                            <li>Unique Feature: No unique feature
+                                        {% else %}
+                                            <li>Name: {{pirates.name}}</li>
+                                            <li>Job: {{pirates.job}}</li>
+                                            <li>Fur: {{pirates.fur}}</li>
+                                            <li>Unique Feature: {{pirates.uniquef}}</li>
+                                        {% endif %}
                                     </ul>
                                 </div>
                             </li>
@@ -35,8 +32,4 @@
             {% endfor %}
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-</body>
-</html>
+{% endblock %}
