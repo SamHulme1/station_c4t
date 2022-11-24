@@ -20,9 +20,9 @@
             <a href="#!" class="brand-logo">Logo</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('get_citizens') }}">Citizen data</a></li>
-                <li><a href="{{ url_for('get_ships') }}">Ships</a></li>
+                <li class="glow-font-large"><a href="{{ url_for('index') }}">Home</a></li>
+                <li class="glow-font-large"><a href="{{ url_for('get_citizens') }}">Citizen data</a></li>
+                <li class="glow-font-large"><a href="{{ url_for('get_ships') }}">Ships</a></li>
             </ul>
         </div>
     </nav>
@@ -32,23 +32,36 @@
         <li><a href="{{ url_for('get_ships') }}">Ships</a></li>
     </ul>
     <!-- Main page contents -->
+    <div class="station-img container-fluid">
+        <h1 class="glow-font-title heading h1 center-align">SpaceStation C4t</h1>
+    </div>
     <div class="container-fluid">
 
         {% block content %}
         {% endblock %}
 
     </div>
+    <div class="station-img-2 container-fluid">
+    </div>
     <!-- custom materialize footer -->
-    <footer class="page-footer">
+    <footer class="footer">
         <div class="container-fluid">
             <div class="row">
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">
-                        <span><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"
+                <div class="col l4">
+                    <h5 class="white-text center-align">
+                        <span><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook f-icon"
                                     aria-hidden="true"></i><span class="sr-only">facebook link</span></a></span>
-                        <span><a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"
+                    </h5>
+                </div>
+                    <div class="col l4">
+                    <h5 class="white-text center-align">
+                        <span><a href="https://github.com/" target="_blank"><i class="fa-brands fa-github f-icon"
                                     aria-hidden="true"></i><span class="sr-only">github link</span></a></span>
-                        <span><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"
+                    </h5>
+                </div>
+                    <div class="col l4">
+                    <h5 class="white-text center-align">
+                        <span><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin f-icon"
                                     aria-hidden="true"></i><span class="sr-only">linkedin link</span></a></span>
                     </h5>
                 </div>

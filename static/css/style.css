@@ -3,7 +3,27 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: rgb(118 158 165);
   }
+
+.station-img{
+    background : url(https://images.nightcafe.studio/jobs/69OGdj2T5jAyofEEW6Eh/69OGdj2T5jAyofEEW6Eh--4--dkdt4_4x.jpg?tr=w-1600,c-at_max);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 40em;
+}
+
+.station-img-2{
+    background : url(https://images.nightcafe.studio/jobs/WO9jrjtiGSXzbAgByQNU/WO9jrjtiGSXzbAgByQNU--4--dqh20_2x.jpg?tr=w-1600,c-at_max);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 35em;
+}
+
 
   main {
     flex: 1 0 auto;
@@ -20,6 +40,26 @@ button {
     border-radius: 50%;
 }
 
+nav li a {
+    font-size: 3em;
+    margin-left: 1em;
+}
+
+.glow-font-large {
+    font-family: "Audiowide", sans-serif;
+    color: white;
+    text-shadow: 1px 1px rgba(63, 200, 205, 1 );
+}
+
+.glow-font-title{
+    font-family: "Audiowide", sans-serif;
+    color: black;
+    text-shadow: -3px 3px rgb(249 252 204);
+}
+
+.content-bg{
+    background-color: rgba(0, 0, 0, 0.1 );
+}
 .glow-font-small {
     font-family: "Audiowide", sans-serif;
     color: white;
@@ -28,6 +68,11 @@ button {
 button:focus {
     outline: none;
     background-color: rgba(0, 0, 0, 0 );
+}
+
+.f-icon {
+    font-size: 70px;
+    color: rgba(63, 200, 205, 1 );
 }
 
 img:hover {
@@ -47,4 +92,21 @@ img:hover {
 
 ul {
     border-radius: 200em;
+    border-style: none;
+}
+
+.collapsible{
+    border: none;
+}
+
+.active{
+    background-color: none;
+}
+
+.footer {
+    background-color: rgb(138 72 113);
+}
+
+nav {
+    background-color: rgb(138 72 113);
 }
