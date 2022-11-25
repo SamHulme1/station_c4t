@@ -1,35 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            {% for citizen in citizens %}
-                {% for pirates in citizen.data %}
-                    <div class="col s12 m4 l4">
-                        <ul class="collapsible">
-                            <li>
-                                <button class="collapse">
-                                <img src= "{{pirates.img_src}}" alt="{{pirates.name}}"class="center-align">
-                                </button>
-                                <div class="content">
-                                    <ul class="glow-font-small">
-                                        {% if pirates.uniquef == null%}
-                                            <li>Name: {{pirates.name}}</li>
-                                            <li>Job: {{pirates.job}}</li>
-                                            <li>Fur: {{pirates.fur}}</li>
-                                            <li>Unique Feature: No unique feature
-                                        {% else %}
-                                            <li>Name: {{pirates.name}}</li>
-                                            <li>Job: {{pirates.job}}</li>
-                                            <li>Fur: {{pirates.fur}}</li>
-                                            <li>Unique Feature: {{pirates.uniquef}}</li>
-                                        {% endif %}
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                {% endfor %}
-            {% endfor %}
-        </div>
+<div class="container-fluid">
+    <div class="row">
+        {% for pirates in citizens %}
+            <div class="col s12 m4 l4">
+                <ul class="collapsible">
+                    <li>
+                        <button class="collapse">
+                            <img src="{{pirates.img_src}}" alt="{{pirates.name}}" class="center-align">
+                        </button>
+                        <div class="content">
+                            <ul class="glow-font-small">
+                                {% if pirates.uniquef == null%}
+                                <li>Name: {{pirates.name}}</li>
+                                <li>Job: {{pirates.job}}</li>
+                                <li>Fur: {{pirates.fur}}</li>
+                                <li>Unique Feature: No unique feature
+                                    {% else %}
+                                <li>Name: {{pirates.name}}</li>
+                                <li>Job: {{pirates.job}}</li>
+                                <li>Fur: {{pirates.fur}}</li>
+                                <li>Unique Feature: {{pirates.uniquef}}</li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}
