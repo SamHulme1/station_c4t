@@ -26,3 +26,5 @@
     this.alert("Welcome to the staion username(placeholder), on this site you can create your own cat spaceship, ready to take on the stars Customise your crew and ship and share them with friends!")
 });
 
+
+M.AutoInit()

@@ -28,13 +28,32 @@ input[type=text]:not(.browser-default) {
     width:70%;
     margin: 0 0 30px 0;
     border: solid;
-    background-color: white;
-    color: black;
+    background-color: rgb(118 158 165);
+    border-color: white;
+    font-family: "Audiowide", sans-serif;
 }
 
 .form-style {
     background-color: #8a4871;
     border-radius: 3%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.profile-img{
+    border-radius: 0%;
+}
+
+.submit-btn {
+    background-color: rgb(118 158 165);
+    font-family: "Audiowide", sans-serif;
+    font-size: 30px;
+    color: white;
+    border-radius: 20%;
+    border-style: none;
+    margin-top: 2em;
 }
 
   main {
@@ -91,9 +110,11 @@ button:focus {
     background-color: none;
 }
 
-.signup-img{
+#signup-img{
     border-radius: 50%;
     width: 30%;
+    margin-top: 1em;
+    margin-bottom: 2em;
 }
 
 .content {
@@ -105,11 +126,6 @@ button:focus {
     margin-top: 10px;
     text-align: center;
   }
-
-ul {
-    border-radius: 200em;
-    border-style: none;
-}
 
 .collapsible{
     border: none;
