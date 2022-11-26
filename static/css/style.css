@@ -12,7 +12,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    min-height: 40em;
+    min-height: 15em;
 }
 
 .station-img-2{
@@ -21,15 +21,27 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    min-height: 35em;
+    min-height: 15em;
 }
 
+input[type=text]:not(.browser-default) {
+    width:70%;
+    margin: 0 0 30px 0;
+    border: solid;
+    background-color: white;
+    color: black;
+}
+
+.form-style {
+    background-color: #8a4871;
+    border-radius: 3%;
+}
 
   main {
     flex: 1 0 auto;
   }
 
-img {
+.ctz-img {
     border-radius: 50%;
     width:100%
 }
@@ -74,9 +86,14 @@ button:focus {
     color: rgba(63, 200, 205, 1 );
 }
 
-img:hover {
+.ctz-img:hover {
     box-shadow: 5px 1px 5px 1px rgba(63, 200, 205, 1 );
     background-color: none;
+}
+
+.signup-img{
+    border-radius: 50%;
+    width: 30%;
 }
 
 .content {
