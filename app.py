@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
@@ -24,6 +25,23 @@ def index():
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
+    if request.method == "POST":
+        existing_cptn = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+        if existing_cptn:
+            flash("Captain already exists")
+            return redirect(url_for("signup"))
+
+        create_account = {
+            "profile_picture": request.form.get("profile_picture"),
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password"))
+        }
+
+        mongo.db.users.insert_one(create_account)
+
+        current_cptn["user"] = request.form.get("username").lower()
+        flash("Welcome appord captain {current_cptn}")
     return render_template("signup.html")
 
 
