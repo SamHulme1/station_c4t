@@ -1,35 +1,41 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="row">
-    <form class="col s10 offset-s1" method="POST" action="{{ url_for('signup') }}">
-        <div class="container-fluid form-style">
-            <div class="input-field center-align">
-                <div>
-                    <img src="https://images.nightcafe.studio/jobs/z3j3WooIS8fEToIvhaFw/z3j3WooIS8fEToIvhaFw--1--q6qfd.jpg?tr=w-1600,c-at_max"
-                        alt="user-icon" id="signup-img">
-                </div>
-                <div>
-                    <label class="glow-font-small" for="username">Username: </label>
-                    <input type="text" id="username" name="username" required placeholder="Captain Sam">
-                    <br>
-                    <label class="glow-font-small" for="password">Password: </label>
-                    <input type="text" id="password" name="password" required placeholder="Create/enter password">
-                    <div class="input-field col s12 m6 offset-m4 profile-imgs">
-                        <select class="icons">
-                          <option disabled selected>Select Profile Image</option>
-                          <option class="options" value="profile-img-1" data-icon="https://images.nightcafe.studio/jobs/0Fie4Afeddosmr0icrxl/0Fie4Afeddosmr0icrxl--4--kmcq9.jpg?tr=w-1600,c-at_max">Image 1</option>
-                          <option class="options" value="profile-img-2" data-icon="https://images.nightcafe.studio/jobs/jwkDhWTcXJoTXYI3JC9y/jwkDhWTcXJoTXYI3JC9y--2--jo47e.jpg?tr=w-1600,c-at_max">Image 2</option>
-                          <option class="options" value="profile-img-3" data-icon="https://images.nightcafe.studio/jobs/RzogiCzkr92cWwvEZHDf/RzogiCzkr92cWwvEZHDf--3--ttj0b.jpg?tr=w-1600,c-at_max">Image 3</option>
-                          <option class="options" value="profile-img-3" data-icon="https://images.nightcafe.studio/jobs/2l2MkDPcoR7qd9YhRjSd/2l2MkDPcoR7qd9YhRjSd--4--598ad.jpg?tr=w-1600,c-at_max">Image 4</option>
-                          <option class="options" value="profile-img-3" data-icon="https://images.nightcafe.studio/jobs/bebZKf8BfvxBmqSfmS37/bebZKf8BfvxBmqSfmS37--1--dggoc.jpg?tr=w-1600,c-at_max">Image 5</option>
-                        </select>
-                      </div>
-                    <br>
-                    <br>
-                </div>
-                <input type="submit" class="submit-btn">
-            </div>
-        </div>
-    </form>
-</div>
+
+        <form class="col s10 offset-s1" method="POST" action="{{ url_for('create_account') }}">
+            <div class="container-fluid form-style">
+                <div class="center-align">
+                    <div>
+                        <img src="https://images.nightcafe.studio/jobs/z3j3WooIS8fEToIvhaFw/z3j3WooIS8fEToIvhaFw--1--q6qfd.jpg?tr=w-1600,c-at_max"
+                            alt="user-icon" id="signup-img">
+                        <div class="row">
+                            <div class="col s12">
+                                <div class="container-fluid form-style center-align">
+                                    <div class="row">
+                                        <fieldset class="col s8 offset-s2">
+                                            {{ form.username.label }}
+                                            {{ form.username}}
+                                        </fieldset>
+                                    </div>
+                                    <div class="row">
+                                        <fieldset class="col s8 offset-s2">
+                                            {{ form.password.label }}
+                                            {{ form.password }}
+                                        </fieldset>
+                                    </div>
+                                    <div class="row">
+                                        <fieldset class="col s8 offset-s2">
+                                            {{ form.confirmPassword.label }}
+                                            {{ form.confirmPassword }}
+                                        </fieldset>
+                                    </div>
+                                    <div class="row">
+                                        <div class="offset-s2">
+                                            {{ form.submit }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </form>
 {% endblock %}
