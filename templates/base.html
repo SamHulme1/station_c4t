@@ -17,25 +17,24 @@
     <!-- Materialize navbar desktop and mobile -->
     <nav>
         <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Logo</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="{{ url_for('index') }}" class="brand-logo glow-font-title hide-on-small-only">SpaceStation C4t</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class=" n-icon fa-brands fa-space-awesome"></i></a>
             <ul class="right hide-on-med-and-down">
                 <li class="glow-font-large"><a href="{{ url_for('index') }}">Home</a></li>
                 <li class="glow-font-large"><a href="{{ url_for('get_citizens') }}">Citizen data</a></li>
                 <li class="glow-font-large"><a href="{{ url_for('get_ships') }}">Ships</a></li>
-                <li class="glow-font-large"><a href="{{ url_for('signup') }}">Sign Up</a></li>
+                <li class="glow-font-large"><a href="{{ url_for('create_account') }}">Sign Up</a></li>
             </ul>
         </div>
     </nav>
     <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('index') }}">Home</a></li>
-        <li><a href="{{ url_for('get_citizens') }}">Citizen data</a></li>
-        <li><a href="{{ url_for('get_ships') }}">Ships</a></li>
-        <li><a href="{{ url_for('signup') }}">Sign Up</a></li>
+        <li class="glow-font-large"><a href="{{ url_for('index') }}">Home</a></li>
+        <li class="glow-font-large"><a href="{{ url_for('get_citizens') }}">Citizen data</a></li>
+        <li class="glow-font-large"><a href="{{ url_for('get_ships') }}">Ships</a></li>
+        <li class="glow-font-large"><a href="{{ url_for('create_account') }}">Sign Up</a></li>
     </ul>
     <!-- Main page contents -->
     <div class="station-img container-fluid">
-        <h1 class="glow-font-title heading h1 center-align">SpaceStation C4t</h1>
     </div>
     <div class="container-fluid">
 
@@ -49,20 +48,20 @@
     <footer class="footer">
         <div class="container-fluid">
             <div class="row">
-                <div class="col l4">
-                    <h5 class="white-text center-align">
+                <div class="col s4">
+                    <h5 class="center-align">
                         <span><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook f-icon"
                                     aria-hidden="true"></i><span class="sr-only">facebook link</span></a></span>
                     </h5>
                 </div>
-                    <div class="col l4">
-                    <h5 class="white-text center-align">
+                    <div class="col s4">
+                    <h5 class="center-align">
                         <span><a href="https://github.com/" target="_blank"><i class="fa-brands fa-github f-icon"
                                     aria-hidden="true"></i><span class="sr-only">github link</span></a></span>
                     </h5>
                 </div>
-                    <div class="col l4">
-                    <h5 class="white-text center-align">
+                    <div class="col s4 footer-icons">
+                    <h5 class="center-align">
                         <span><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin f-icon"
                                     aria-hidden="true"></i><span class="sr-only">linkedin link</span></a></span>
                     </h5>
