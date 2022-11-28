@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-
         <form class="col s10 offset-s1" method="POST" action="{{ url_for('create_account') }}">
-            <div class="container-fluid form-style">
+            <div class="container form-style">
                 <div class="center-align">
                     <div>
                         <img src="https://images.nightcafe.studio/jobs/z3j3WooIS8fEToIvhaFw/z3j3WooIS8fEToIvhaFw--1--q6qfd.jpg?tr=w-1600,c-at_max"
                             alt="user-icon" id="signup-img">
                         <div class="row">
                             <div class="col s12">
-                                <div class="container-fluid form-style center-align">
+                                <div class="container-fluid center-align">
                                     <div class="row">
                                         <fieldset class="col s8 offset-s2">
                                             {{ form.username.label }}
@@ -37,5 +36,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <h3> Already a cat captain, <a href="{{ url_for('login') }}">click here</a> </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </form>
 {% endblock %}
