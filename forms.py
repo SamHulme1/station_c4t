@@ -37,3 +37,20 @@ class signup(FlaskForm):
         ]
     )
     submit = SubmitField('submit')
+
+
+class login_to_account(FlaskForm):
+    username = StringField(
+        "username",
+        [
+            DataRequired(message="Enter a valid username")
+        ]
+    )
+    password = PasswordField(
+        "password",
+        [
+            DataRequired("Please your password")
+        ]
+    )
+
+    submit = SubmitField('submit')
