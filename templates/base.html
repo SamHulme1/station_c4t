@@ -24,6 +24,7 @@
                 <li class="glow-font-large"><a href="{{ url_for('get_citizens') }}">Citizen data</a></li>
                 <li class="glow-font-large"><a href="{{ url_for('get_ships') }}">Ships</a></li>
                 <li class="glow-font-large"><a href="{{ url_for('create_account') }}">Sign Up</a></li>
+                <li class="glow-font-large"><a href="{{ url_for('login') }}">Login</a></li>
             </ul>
         </div>
     </nav>
@@ -32,16 +33,29 @@
         <li class="glow-font-large"><a href="{{ url_for('get_citizens') }}">Citizen data</a></li>
         <li class="glow-font-large"><a href="{{ url_for('get_ships') }}">Ships</a></li>
         <li class="glow-font-large"><a href="{{ url_for('create_account') }}">Sign Up</a></li>
+        <li class="glow-font-large"><a href="{{ url_for('login') }}">Login</a></li>
     </ul>
     <!-- Main page contents -->
     <div class="station-img container-fluid">
-    </div>
-    <div class="container-fluid">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
 
-        {% block content %}
-        {% endblock %}
 
     </div>
+        <div class="container-fluid">
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+        
     <div class="station-img-2 container-fluid">
     </div>
     <!-- custom materialize footer -->
