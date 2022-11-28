@@ -24,15 +24,25 @@ body {
     min-height: 15em;
 }
 
+input[type=text]:not(.browser-default),
+input[type=password]:not(.browser-default){
+    border: none;
+    height: 1em;
+    margin:0;
+}
+
 .form-style {
-    background-color: #8a4871;
+    background-color: #8f7692;
+    border: solid;
+    border-color: white;
     padding-top: 1em;
     padding-bottom: 1em;
+    margin-top: 1em;
     margin-bottom: 1em;
 }
 
 fieldset {
-    background-color: rgb(118 158 165);
+    background-color: rgb(39 21 50 / 47%);
     color: black;
     font-family: "Audiowide", sans-serif;
     
@@ -49,13 +59,11 @@ label {
 }
 
 #submit {
-    background-color: rgb(118 158 165);
+    background-color: rgb(39 21 50 / 47%);
     font-family: "Audiowide", sans-serif;
-    font-size: 30px;
+    font-size: 16px;
     color: white;
-    border-radius: 20%;
-    border-style: none;
-    margin-top: 2em;
+    border: white solid;
 }
 
   main {
@@ -69,7 +77,6 @@ label {
 
 button {
     border: none;
-    color: none;
     border-radius: 50%;
 }
 
@@ -103,10 +110,11 @@ nav li a {
     font-family: "Audiowide", sans-serif;
     color: white;
     text-shadow: 1px 1px rgba(63, 200, 205, 1 );
+    font-size: 0.5em;
 }
 button:focus {
     outline: none;
-    background-color: rgba(0, 0, 0, 0 );
+    background-color: #2ab7a9;;
 }
 
 .f-icon {
@@ -150,11 +158,11 @@ button:focus {
 }
 
 .footer {
-    background-color: rgb(138 72 113);
+    background-color: rgba(39, 21, 50, 0.88);
 }
 
 nav {
-    background-color: rgb(138 72 113);
+    background-color: rgba(39, 21, 50, 0.88);
 }
 
 nav .brand-logo {
