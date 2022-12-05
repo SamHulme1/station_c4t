@@ -1,21 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container-fluid">
+    <h2>Choose 4 Cats to Add to Your Crew </h2>
     <div class="row">
         {% for pirates in citizens %}
             <div class="col s4 m4 l4">
                 <ul class="collapsible">
                     <li>
-                        <button class="collapse">
+                        <button class="collapse ctz-button">
                             <img src="{{pirates.img_src}}" alt="{{pirates.name}}" class="center-align ctz-img">
                         </button>
                         <div class="content">
-                            <ul class="glow-font-small">
+                            <ul class="glow-font-small cat-info">
                                 {% if pirates.uniquef == null%}
                                 <li>Name: {{pirates.name}}</li>
                                 <li>Job: {{pirates.job}}</li>
                                 <li>Fur: {{pirates.fur}}</li>
-                                <li>Unique Feature: No unique feature
+                                <li>Unique Feature: No unique feature</li>
                                     {% else %}
                                 <li>Name: {{pirates.name}}</li>
                                 <li>Job: {{pirates.job}}</li>
@@ -24,10 +25,35 @@
                                 {% endif %}
                             </ul>
                         </div>
+                        <button class="addToCrew">Add</button>
                     </li>
                 </ul>
             </div>
         {% endfor %}
     </div>
 </div>
+<div>
+    <ul class="col s8 offset-s2 "id="crew-preview"></ul>
+    <button id="confirm-crew-btn">Confirm</button>
+    <button id="reset-crew-btn">Reset</button>
+</div>
+<form method="post" action="{{ url_for('get_citizens') }}">
+    <fieldset class="col s8 offset-s2">
+        {{ form.shipname.label }}
+        {{ form.shipname }}
+    </fieldset>
+    <fieldset class="col s8 offset-s2">
+        {{ form.colour.label }}
+        {{ form.colour }}
+    </fieldset>
+    <fieldset class="col s8 offset-s2">
+        {{form.crew.label}}
+        {{form.crew}}
+    </fieldset>
+    <div class="row">
+        <div class="offset-s2">
+            {{ form.submit }}
+        </div>
+    </div>
+</form>
 {% endblock %}
