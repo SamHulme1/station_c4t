@@ -16,8 +16,10 @@ from wtforms.validators import (
     URL
 )
 
+COLOUR_CHOICES = [('1', 'red'), ('2', 'green'), ('3', 'blue'), ('4', 'yellow')]
 
-class signup(FlaskForm):
+
+class signUp(FlaskForm):
     username = StringField(
         "username",
         [
@@ -39,7 +41,7 @@ class signup(FlaskForm):
     submit = SubmitField('submit')
 
 
-class login_to_account(FlaskForm):
+class loginToAccount(FlaskForm):
     username = StringField(
         "username",
         [
@@ -50,6 +52,25 @@ class login_to_account(FlaskForm):
         "password",
         [
             DataRequired("Please your password")
+        ]
+    )
+
+    submit = SubmitField('submit')
+
+
+class createShip(FlaskForm):
+    shipname = StringField(
+        "shipname",
+        [
+            DataRequired(message="Enter a valid shipname")
+        ]
+    )
+    colour = SelectField(u'colour', choices=COLOUR_CHOICES)
+
+    crew = StringField(
+        "crew",
+        [
+            DataRequired(message="Select your crew")
         ]
     )
 
