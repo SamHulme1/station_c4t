@@ -1,5 +1,5 @@
 import os
-from forms import signup, login_to_account
+from forms import signUp, loginToAccount, createShip
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -27,8 +27,7 @@ def index():
 @app.route("/signup", methods=["GET", "POST"])
 def create_account():
     """Signup form"""
-    form = signup()
-    # form signup form from forms
+    form = signUp()
     if request.method == "POST":
         existing_captain = mongo.db.users.find_one(
             {"username": request.form["username"]})
@@ -59,7 +58,7 @@ def create_account():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    form = login_to_account()
+    form = loginToAccount()
     if request.method == "POST":
         existing_captain = mongo.db.users.find_one(
             {"username": request.form["username"]})
@@ -98,12 +97,20 @@ def login():
     )
 
 
-@app.route("/get_citizens")
+@app.route("/get_citizens", methods=["GET", "POST"])
 def get_citizens():
     # get the citizens stored in the db
     citizens = mongo.db.citizens.find()
+    form = createShip()
+    if request.method == "POST":
+        mongo.db.ships.insert_one({
+            "captain": session["user"],
+            "shipname": request.form["shipname"],
+            "shipcolour": request.form["colour"],
+            "ShipCrew": request.form["crew"]
+        })
     return render_template(
-        "citizens.html", citizens=citizens, page_title="citizens")
+        "citizens.html", citizens=citizens, form=form)
 
 
 @app.route("/get_ships")
