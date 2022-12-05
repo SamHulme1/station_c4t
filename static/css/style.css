@@ -3,7 +3,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: rgb(118 158 165);
+    background-color: white;
   }
 
 .station-img{
@@ -16,7 +16,7 @@ body {
 }
 
 .station-img-2{
-    background : url(https://images.nightcafe.studio/jobs/WO9jrjtiGSXzbAgByQNU/WO9jrjtiGSXzbAgByQNU--4--dqh20_2x.jpg?tr=w-1600,c-at_max);
+    background : url(https://images.nightcafe.studio/jobs/WO9jrjtiGSXzbAgByQNU/WO9jrjtiGSXzbAgByQNU--3--oz0ui_2x.jpg?tr=w-1600,c-at_max);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -39,6 +39,22 @@ input[type=password]:not(.browser-default){
     padding-bottom: 1em;
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+.con-icon{
+    font-size: 5em;
+}
+
+.control-panel {
+    background-color: rgb(39 21 50 / 47%);
+    border: solid;
+    border-color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    height: 40vh;
+    border-radius: 2em;
 }
 
 fieldset {
@@ -72,12 +88,20 @@ label {
 
 .ctz-img {
     border-radius: 50%;
-    width:100%
+    width:90%
 }
 
-button {
+.citz-button {
     border: none;
-    border-radius: 50%;
+    background-color: #8f7692;
+}
+
+.con-btn{
+    background-color: #848988;
+    border-radius: 2em;
+    border-style: none;
+    height:7em;
+    width:7em;
 }
 
 nav li a {
@@ -158,11 +182,11 @@ button:focus {
 }
 
 .footer {
-    background-color: rgba(39, 21, 50, 0.88);
+    background-color: #2a475f;
 }
 
 nav {
-    background-color: rgba(39, 21, 50, 0.88);
+    background-color: #2a475f;
 }
 
 nav .brand-logo {
