@@ -107,8 +107,9 @@ def get_citizens():
             "captain": session["user"],
             "shipname": request.form["shipname"],
             "shipcolour": request.form["colour"],
-            "ShipCrew": request.form["crew"]
+            "ShipCrew": request.form["crew"].strip()
         })
+        return redirect(url_for("get_ships"))
     return render_template(
         "citizens.html", citizens=citizens, form=form)
 
