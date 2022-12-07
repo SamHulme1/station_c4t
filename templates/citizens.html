@@ -1,43 +1,57 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-fluid">
-    <h2>Choose 4 Cats to Add to Your Crew </h2>
+<div class="container-fluid form-style">
+    <div class="row">
+        <div class="col s12">
+            <h2 class="glow-font-large center-align">Choose 4 Cats</h2>
+        </div>
+    </div>
+</div>
+<div class="container form-style">
     <div class="row">
         {% for pirates in citizens %}
-            <div class="col s4 m4 l4">
+            <div class="col s3 m3 l3">
                 <ul class="collapsible">
                     <li>
-                        <button class="collapse ctz-button">
+                        <button class="collapse">
                             <img src="{{pirates.img_src}}" alt="{{pirates.name}}" class="center-align ctz-img">
                         </button>
                         <div class="content">
-                            <ul class="glow-font-small cat-info">
+                            <ul class="glow-font-small">
                                 {% if pirates.uniquef == null%}
-                                <li>Name: {{pirates.name}}</li>
-                                <li>Job: {{pirates.job}}</li>
-                                <li>Fur: {{pirates.fur}}</li>
-                                <li>Unique Feature: No unique feature</li>
+                                <li>Name: <span class="cat-name">{{pirates.name}}</span></li>
+                                <li>Job: <span class="cat-job">{{pirates.job}}</span></li>
+                                <li>Fur: <span class="cat-fur">{{pirates.fur}}</span></li>
+                                <li>unique Feature: <span class="cat-uniquef">No unique feature</span></li>
+                                <button class="addToCrew">Add</button>
                                     {% else %}
-                                <li>Name: {{pirates.name}}</li>
-                                <li>Job: {{pirates.job}}</li>
-                                <li>Fur: {{pirates.fur}}</li>
-                                <li>Unique Feature: {{pirates.uniquef}}</li>
+                                <li>Name: <span class="cat-name">{{pirates.name}}</span></li>
+                                <li>Job: <span class="cat-job">{{pirates.job}}</span></li>
+                                <li>Fur: <span class="cat-fur">{{pirates.fur}}</span></li>
+                                <li>unique Feature: <span class="cat-uniquef">{{pirates.uniquef}}</span></li>
+                                <button class="addToCrew">Add</button>
                                 {% endif %}
                             </ul>
                         </div>
-                        <button class="addToCrew">Add</button>
                     </li>
                 </ul>
             </div>
         {% endfor %}
     </div>
 </div>
-<div>
-    <ul class="col s8 offset-s2 "id="crew-preview"></ul>
-    <button id="confirm-crew-btn">Confirm</button>
-    <button id="reset-crew-btn">Reset</button>
+<div class="container-fluid form-style">
+    <div class="row">
+        <h3 class="glow-font-large center-align">Crew Preview</h3>
+        <div class="col s12" id="crew-preview"></div>
+    </div>
+    <div class="row">
+        <div class = "col s12 center-align">
+            <button id="confirm-crew-btn" class="input-button">Confirm</button>
+            <button id="reset-crew-btn" class="input-button">Reset</button>
+        </div>
+    </div>
 </div>
-<form method="post" action="{{ url_for('get_citizens') }}">
+<form method="post" action="{{ url_for('get_citizens') }}" class="form-style">
     <fieldset class="col s8 offset-s2">
         {{ form.shipname.label }}
         {{ form.shipname }}
@@ -46,14 +60,15 @@
         {{ form.colour.label }}
         {{ form.colour }}
     </fieldset>
-    <fieldset class="col s8 offset-s2">
+    <fieldset class="col s8 offset-s2 crew-field">
         {{form.crew.label}}
         {{form.crew}}
     </fieldset>
     <div class="row">
-        <div class="offset-s2">
+        <div class="offset-s2 center-align">
             {{ form.submit }}
         </div>
     </div>
 </form>
+<script src="/static/scripts/js/citizen.js"></script>
 {% endblock %}
