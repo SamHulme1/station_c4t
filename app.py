@@ -6,6 +6,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+import json
 if os.path.exists("env.py"):
     import env
 
@@ -103,11 +104,12 @@ def get_citizens():
     citizens = mongo.db.citizens.find()
     form = createShip()
     if request.method == "POST":
+        shipCrew = request.form["crew"]
         mongo.db.ships.insert_one({
             "captain": session["user"],
             "shipname": request.form["shipname"],
             "shipcolour": request.form["colour"],
-            "ShipCrew": request.form["crew"].strip()
+            "ShipCrew": json.loads(shipCrew)
         })
         return redirect(url_for("get_ships"))
     return render_template(
@@ -117,9 +119,11 @@ def get_citizens():
 @app.route("/get_ships")
 def get_ships():
     # get the ships stored in the db
-    ships = mongo.db.ships.find()
+    userShips = mongo.db.ships.find({"captain": session["user"]})
+    allShips = mongo.db.ships.find()
     return render_template(
-        "ships.html", ships=ships, page_title="ships")
+        "ships.html", userShips=userShips,
+        allShips=allShips, page_title="ships")
 
 
 if __name__ == "__main__":
