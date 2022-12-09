@@ -6,7 +6,6 @@ const crewConfirmBtn = document.getElementById("confirm-crew-btn");
 const addToCrewBtns = document.getElementsByClassName("addToCrew");
 const resetCrewBtn = document.getElementById("reset-crew-btn");
 const createShipForm = document.getElementById("createShip-form-data");
-const collapse = document.getElementsByClassName("collapse");
 let numOfCatsCounter = 0;
 let catsdata = [];
 
@@ -29,10 +28,10 @@ for (let i = 0; i < addToCrewBtns.length; i++) {
     let catsUf = document.getElementsByClassName("cat-uniquef");
     let catPic = document.getElementsByClassName("ctz-img");
     currentCat = {
-      "Name": catsName[i].textContent,
-      "Job": catsJob[i].textContent,
-      "Fur": catsFur[i].textContent,
-      "Unique Feature": catsUf[i].textContent,
+      "name": catsName[i].textContent,
+      "job": catsJob[i].textContent,
+      "fur": catsFur[i].textContent,
+      "uniqueFeature": catsUf[i].textContent,
       "img": catPic[i].src
     };
     catsdata.push(currentCat);
@@ -85,21 +84,5 @@ resetCrewBtn.addEventListener('click', function(){
   }
   return numOfCatsCounter;
 })
-
-/* collapse buttons
-  get element with class of collapse
-
-*/
-for (let i = 0; i < collapse.length; i++) {
-    collapse[i].addEventListener("click", function() {
-      this.classList.toggle("active");
-      let content = this.nextElementSibling;
-      if (content.style.display === "block") {
-        content.style.display = "none";
-      } else {
-        content.style.display = "block";
-      }
-    });
-  }
 
 
