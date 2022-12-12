@@ -20,20 +20,29 @@
             <a href="{{ url_for('index') }}" class="logo hide-on-small-only">SpaceStation C4t</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class=" n-icon fa-brands fa-space-awesome"></i></a>
             <ul class="right hide-on-med-and-down">
-                <li class="glow-font-nav"><a href="{{ url_for('index') }}">Home</a></li>
-                <li class="glow-font-nav"><a href="{{ url_for('get_citizens') }}">Citizen data</a></li>
-                <li class="glow-font-nav"><a href="{{ url_for('get_ships') }}">Ships</a></li>
+                {% if session["user"] %}
+                <li class="glow-font-nav"><a href="{{ url_for('get_citizens') }}">Create a ship</a></li>
+                <li class="glow-font-nav"><a href="{{ url_for('get_ships') }}">My ships</a></li>
+                <li class="glow-font-nav"><a href="{{ url_for('logout') }}">Logout</a></li>
+                <li class="glow-font-nav"><a href="{{ url_for('delete_account') }}">delete account</a></li>
+                {% else %}
                 <li class="glow-font-nav"><a href="{{ url_for('create_account') }}">Sign Up</a></li>
                 <li class="glow-font-nav"><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>
     <ul class="sidenav" id="mobile-demo">
+        {% if session["user"] %}
         <li class="glow-font-nav"><a href="{{ url_for('index') }}">Home</a></li>
-        <li class="glow-font-nav"><a href="{{ url_for('get_citizens') }}">Citizen data</a></li>
-        <li class="glow-font-nav"><a href="{{ url_for('get_ships') }}">Ships</a></li>
+        <li class="glow-font-nav"><a href="{{ url_for('get_citizens') }}">Create a ship</a></li>
+        <li class="glow-font-nav"><a href="{{ url_for('get_ships') }}">My ships</a></li>
+        <li class="glow-font-nav"><a href="{{ url_for('logout') }}">Logout</a></li>
+        <li class="glow-font-nav"><a href="{{ url_for('delete_account') }}">delete account</a></li>
+        {% else %}
         <li class="glow-font-nav"><a href="{{ url_for('create_account') }}">Sign Up</a></li>
         <li class="glow-font-nav"><a href="{{ url_for('login') }}">Login</a></li>
+        {% endif %}
     </ul>
     <!-- Main page contents -->
     <div class="station-img container-fluid">
@@ -49,12 +58,10 @@
 
 
     </div>
-        <div class="container-fluid">
+        {% block content %}
+        {% endblock %}
 
-            {% block content %}
-            {% endblock %}
-
-        </div>
+    </div>
         
     <div class="station-img-2 container-fluid">
     </div>
