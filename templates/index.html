@@ -1,19 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="container control-panel center-align">
-        <div class="row">
-            <div class="col s3">
-                <button class="con-btn"><a href="{{ url_for('index') }}"><i class="fa-solid fa-house con-icon"></i></a></button>
-            </div>
-            <div class="col s3">
-                <button class="con-btn"><a><i class="fa-solid fa-user con-icon"></i></a></button>
-            </div>
-            <div class="col s3">
-                <button class="con-btn"><a href="{{ url_for('get_citizens') }}"><i class="fa-solid fa-cat con-icon"></i></a></button>
-            </div>
-            <div class="col s3">
-                <button class="con-btn"><a href="{{ url_for('get_ships') }}"><i class="fa-solid fa-rocket con-icon"></i></a></button>
-            </div>    
+<div class="container-fluid area-style center-align">
+    <div class="row">
+        <div class="col s12">
+            <h2 class="glow-font-large">Welcome to SpaceStation C4t</h2>
+            <p class="glow-font-medium">On this site you can manage and build your own spaceship, to get started please create an account or signin</p>
         </div>
     </div>
+</div>
 {% endblock %}
