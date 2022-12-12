@@ -1,5 +1,5 @@
 import os
-from forms import signUp, loginToAccount, createShip
+from forms import signUp, loginToAccount, createShip, deleteAccount
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -63,10 +63,6 @@ def login():
     if request.method == "POST":
         existing_captain = mongo.db.users.find_one(
             {"username": request.form["username"]})
-        admin = mongo.db.admins.find_one(
-            {"username": request.form["username"],
-                "password": request.form["password"]})
-
     # if method is post search db to see if a
     # name is already on the db with the same name
         if existing_captain:
@@ -82,12 +78,6 @@ def login():
                     "Unauthorized password/username, please try again")
                 # if user isn't in database tell the user they're unathorized
                 return redirect(url_for("login"))
-
-        elif admin:
-            # if user is admin log in as admin
-            # store user in local storage
-            session["user"] = request.form["username"]
-            flash("Welcome admiral")
         else:
             flash("Unauthorized password/username")
             return redirect(url_for("login"))
@@ -98,19 +88,32 @@ def login():
     )
 
 
+@app.route("/logout")
+def logout():
+    Flask("You have been logged out goodbye")
+    session["user"] = ""
+    return redirect(url_for("index"))
+
+
 @app.route("/get_citizens", methods=["GET", "POST"])
 def get_citizens():
-    # get the citizens stored in the db
     citizens = mongo.db.citizens.find()
     form = createShip()
     if request.method == "POST":
-        shipCrew = request.form["crew"]
-        mongo.db.ships.insert_one({
-            "captain": session["user"],
-            "shipname": request.form["shipname"],
-            "shipcolour": request.form["colour"],
-            "ShipCrew": json.loads(shipCrew)
-        })
+        existing_ship = mongo.db.ships.find_one(
+            {"shipname": request.form["shipname"]})
+        if existing_ship:
+            flash(
+                "This ship already exists please try naming it something else")
+            return redirect(url_for("get_citizens"))
+        if existing_ship is None:
+            shipCrew = request.form["crew"]
+            mongo.db.ships.insert_one({
+                "captain": session["user"],
+                "shipname": request.form["shipname"],
+                "shipcolour": request.form["colour"],
+                "ShipCrew": json.loads(shipCrew)
+            })
         return redirect(url_for("get_ships"))
     return render_template(
         "citizens.html", citizens=citizens, form=form)
@@ -124,6 +127,25 @@ def get_ships():
     return render_template(
         "ships.html", userShips=userShips,
         allShips=allShips, page_title="ships")
+
+
+@app.route("/delete_account", methods=["GET", "POST"])
+def delete_account():
+    form = deleteAccount()
+    if request.method == "POST":
+        existing_captain = mongo.db.users.find_one(
+            {"username": request.form["username"]})
+        if existing_captain:
+            if check_password_hash(
+                    existing_captain["password"], request.form["password"]):
+                flash("user deleted")
+                session["user"] = ""
+                mongo.db.users.delete_one(
+                    {"username": request.form["username"]})
+            return redirect(url_for("index"))
+        else:
+            return redirect(url_for("delete_account"))
+    return render_template("delete-account.html", form=form)
 
 
 if __name__ == "__main__":
