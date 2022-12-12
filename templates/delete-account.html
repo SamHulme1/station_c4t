@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<form class="col s10 offset-s1" method="POST" action="{{ url_for('delete_account') }}">
+    <div class="container form-style">
+        <div class="center-align">
+            <div>
+                <div class="col s12">
+                    <div class="container-fluid center-align">
+                        <div class="row">
+                            <fieldset class="col s8 offset-s2">
+                                {{ form.username.label }}
+                                {{ form.username}}
+                            </fieldset>
+                        </div>
+                        <div class="row">
+                            <fieldset class="col s8 offset-s2">
+                                {{ form.password.label }}
+                                {{ form.password }}
+                            </fieldset>
+                        </div>
+                        <div class="row">
+                            <fieldset class="col s8 offset-s2">
+                                {{ form.confirmPassword.label }}
+                                {{ form.confirmPassword }}
+                            </fieldset>
+                        </div>
+                        <div class="row">
+                            <div class="offset-s2">
+                                {{ form.submit }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</form>
+{% endblock %}
