@@ -20,7 +20,7 @@ from wtforms.validators import (
 COLOUR_CHOICES = [('1', 'red'), ('2', 'green'), ('3', 'blue'), ('4', 'yellow')]
 
 
-class signUp(FlaskForm):
+class SignUp(FlaskForm):
     username = StringField(
         "username", validators=[DataRequired()])
 
@@ -34,7 +34,7 @@ class signUp(FlaskForm):
     submit = SubmitField('submit')
 
 
-class loginToAccount(FlaskForm):
+class LoginToAccount(FlaskForm):
     username = StringField(
         "username", validators=[DataRequired()])
     password = PasswordField(
@@ -42,7 +42,7 @@ class loginToAccount(FlaskForm):
     submit = SubmitField('submit')
 
 
-class createShip(FlaskForm):
+class CreateShip(FlaskForm):
     shipname = StringField(
         "shipname", validators=[DataRequired()])
     colour = SelectField(u'colour', choices=COLOUR_CHOICES)
@@ -53,7 +53,7 @@ class createShip(FlaskForm):
     submit = SubmitField('submit')
 
 
-class deleteAccount(FlaskForm):
+class DeleteAccount(FlaskForm):
     username = StringField(
         "username", validators=[DataRequired()])
     password = PasswordField(
