@@ -17,14 +17,14 @@
     <!-- Materialize navbar desktop and mobile -->
     <nav>
         <div class="nav-wrapper">
-            <a href="{{ url_for('index') }}" class="logo hide-on-small-only">SpaceStation C4t</a>
+            <a href="{{ url_for('index') }}" class="hide-on-small-only logo">SpaceStationC4t</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class=" n-icon fa-brands fa-space-awesome"></i></a>
             <ul class="right hide-on-med-and-down">
                 {% if session["user"] %}
                 <li class="glow-font-nav"><a href="{{ url_for('get_citizens') }}">Create a ship</a></li>
                 <li class="glow-font-nav"><a href="{{ url_for('get_ships') }}">My ships</a></li>
                 <li class="glow-font-nav"><a href="{{ url_for('logout') }}">Logout</a></li>
-                <li class="glow-font-nav"><a href="{{ url_for('delete_account') }}">delete account</a></li>
+                <li class="glow-font-nav"><a href="{{ url_for('myaccount') }}">My Account</a></li>
                 {% else %}
                 <li class="glow-font-nav"><a href="{{ url_for('create_account') }}">Sign Up</a></li>
                 <li class="glow-font-nav"><a href="{{ url_for('login') }}">Login</a></li>
@@ -38,26 +38,30 @@
         <li class="glow-font-nav"><a href="{{ url_for('get_citizens') }}">Create a ship</a></li>
         <li class="glow-font-nav"><a href="{{ url_for('get_ships') }}">My ships</a></li>
         <li class="glow-font-nav"><a href="{{ url_for('logout') }}">Logout</a></li>
-        <li class="glow-font-nav"><a href="{{ url_for('delete_account') }}">delete account</a></li>
+        <li class="glow-font-nav"><a href="{{ url_for('myaccount') }}">My Account</a></li>
         {% else %}
         <li class="glow-font-nav"><a href="{{ url_for('create_account') }}">Sign Up</a></li>
         <li class="glow-font-nav"><a href="{{ url_for('login') }}">Login</a></li>
         {% endif %}
     </ul>
     <!-- Main page contents -->
-    <div class="station-img container-fluid">
+    <div class="station-img container-fluid"></div>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
-            <ul class=flashes>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
+            <div class="container form-style">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="glow-font-nav center-align">
+                            {% for message in messages %}
+                                <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         {% endif %}
     {% endwith %}
 
-
-    </div>
         {% block content %}
         {% endblock %}
 
