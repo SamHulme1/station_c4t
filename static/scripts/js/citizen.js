@@ -6,6 +6,7 @@ const crewConfirmBtn = document.getElementById("confirm-crew-btn");
 const addToCrewBtns = document.getElementsByClassName("addToCrew");
 const resetCrewBtn = document.getElementById("reset-crew-btn");
 const createShipForm = document.getElementById("createShip-form-data");
+const submit = document.getElementById("submit");
 let numOfCatsCounter = 0;
 let catsdata = [];
 
@@ -36,7 +37,7 @@ for (let i = 0; i < addToCrewBtns.length; i++) {
     };
     catsdata.push(currentCat);
 
-    crewPreview.innerHTML += `<div class="col s3 center-align"><img src="${currentCat["img"]}"> <h3 class="glow-font-medium">${currentCat["Name"]}</h3>`;
+    crewPreview.innerHTML += `<div class="col s3 center-align"><img src="${currentCat["img"]}"> <h3 class="glow-font-medium">${currentCat["name"]}</h3>`;
     addToCrewBtns[i].disabled = true;
     numOfCatsCounter +=1
     
@@ -85,4 +86,8 @@ resetCrewBtn.addEventListener('click', function(){
   return numOfCatsCounter;
 })
 
-
+submit.addEventListener("click", function(){
+  if (crewConfirm.innerText == ""){
+    alert("not submitted please make sure 4 cats are added")
+  }
+})
