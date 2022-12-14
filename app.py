@@ -1,5 +1,7 @@
 import os
-from forms import signUp, loginToAccount, createShip, deleteAccount
+from forms import (
+    signUp, loginToAccount, createShip,
+    deleteAccount, ChangePassword)
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -25,21 +27,26 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/myaccount")
+def myaccount():
+    return render_template("myaccount.html")
+
+
 @app.route("/signup", methods=["GET", "POST"])
 def create_account():
     """Signup form"""
     form = signUp()
-    if request.method == "POST":
+    if request.method == "POST" and form.validate:
         existing_captain = mongo.db.users.find_one(
             {"username": request.form["username"]})
     # if method is post search db to see if a
     # name is already on the db with the same name
         if existing_captain:
-            flash(f"The user:{existing_captain} already exists")
+            flash("user already exists")
             return redirect(url_for("create_account"))
     # if name already exists return the users
     #  to the create account page to try again
-        if existing_captain is None:
+        else:
             mongo.db.users.insert_one({
                 "username": request.form["username"],
                 "password": generate_password_hash(request.form["password"])
@@ -60,7 +67,7 @@ def create_account():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     form = loginToAccount()
-    if request.method == "POST":
+    if request.method == "POST" and form.validate:
         existing_captain = mongo.db.users.find_one(
             {"username": request.form["username"]})
     # if method is post search db to see if a
@@ -73,13 +80,14 @@ def login():
                 # display message to user after login
                 session["user"] = request.form["username"]
                 flash(f"Welcome back captain")
+                return redirect(url_for("index"))
             else:
                 flash(
                     "Unauthorized password/username, please try again")
                 # if user isn't in database tell the user they're unathorized
                 return redirect(url_for("login"))
         else:
-            flash("Unauthorized password/username")
+            flash("Unauthorized password/username, please try again")
             return redirect(url_for("login"))
 
     return render_template(
@@ -90,23 +98,55 @@ def login():
 
 @app.route("/logout")
 def logout():
-    Flask("You have been logged out goodbye")
-    session["user"] = ""
-    return redirect(url_for("index"))
+    if is_user_logged_in():
+        flash("You have been logged out goodbye")
+        logout_user()
+        return redirect(url_for("index"))
+
+
+def is_user_logged_in():
+    return session.get("user")
+
+
+def logout_user():
+    return session.pop("user", None)
+
+
+@app.route("/change_password", methods=["GET", "POST"])
+def change_password():
+    form = ChangePassword()
+    if request.method == "POST" and form.validate:
+        existing_captain = mongo.db.users.find_one(
+            {"username": request.form["username"]})
+        if existing_captain:
+            if check_password_hash(
+                    existing_captain["password"], request.form["password"]):
+                new_password = {
+                    "$set": {"password": generate_password_hash(
+                        request.form["newpassword"])}}
+                mongo.db.users.update_one(existing_captain, new_password)
+                flash("Password changed sucessfully please login")
+                logout_user()
+                return redirect(url_for("login"))
+            else:
+                flash("entered username or password is incorrect")
+        else:
+            flask("user doesn't exist please try again")
+    return render_template("changepassword.html", form=form)
 
 
 @app.route("/get_citizens", methods=["GET", "POST"])
 def get_citizens():
     citizens = mongo.db.citizens.find()
     form = createShip()
-    if request.method == "POST":
+    if request.method == "POST" and form.validate:
         existing_ship = mongo.db.ships.find_one(
             {"shipname": request.form["shipname"]})
         if existing_ship:
             flash(
                 "This ship already exists please try naming it something else")
             return redirect(url_for("get_citizens"))
-        if existing_ship is None:
+        else:
             shipCrew = request.form["crew"]
             mongo.db.ships.insert_one({
                 "captain": session["user"],
@@ -123,29 +163,40 @@ def get_citizens():
 def get_ships():
     # get the ships stored in the db
     userShips = mongo.db.ships.find({"captain": session["user"]})
-    allShips = mongo.db.ships.find()
     return render_template(
-        "ships.html", userShips=userShips,
-        allShips=allShips, page_title="ships")
+        "ships.html", userShips=userShips, page_title="ships")
 
 
 @app.route("/delete_account", methods=["GET", "POST"])
 def delete_account():
     form = deleteAccount()
-    if request.method == "POST":
-        existing_captain = mongo.db.users.find_one(
-            {"username": request.form["username"]})
-        if existing_captain:
-            if check_password_hash(
-                    existing_captain["password"], request.form["password"]):
-                flash("user deleted")
-                session["user"] = ""
-                mongo.db.users.delete_one(
-                    {"username": request.form["username"]})
-            return redirect(url_for("index"))
+    if request.method == "POST" and form.validate:
+        if is_user_logged_in():
+            existing_captain = mongo.db.users.find_one(
+                {"username": request.form["username"]})
+            if existing_captain:
+                if check_password_hash(
+                        existing_captain["password"],
+                        request.form["password"]):
+                    flash("user deleted sucessfully")
+                    logout_user()
+                    mongo.db.users.delete_one(
+                        {"username": request.form["username"]})
+                    return redirect(url_for("index"))
+                else:
+                    flash(
+                        "incorrect username/password entered could not delete")
+            else:
+                return redirect(url_for("delete_account"))
         else:
-            return redirect(url_for("delete_account"))
+            flash("delete unsuccessful no user currently logged in")
+            return redirect(url_for("index"))
     return render_template("delete-account.html", form=form)
+
+
+@app.errorhandler(404)
+def not_found(error):
+    return render_template("404.html"), 404
 
 
 if __name__ == "__main__":
