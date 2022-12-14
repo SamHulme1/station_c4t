@@ -5,7 +5,8 @@ from wtforms import (
     SubmitField,
     PasswordField,
     DateField,
-    SelectField
+    SelectField,
+    validators
 )
 
 from wtforms.validators import (
@@ -21,57 +22,53 @@ COLOUR_CHOICES = [('1', 'red'), ('2', 'green'), ('3', 'blue'), ('4', 'yellow')]
 
 class signUp(FlaskForm):
     username = StringField(
-        "username",
-        [
-            DataRequired(message="Enter a valid username")
-        ]
-    )
+        "username", validators=[DataRequired()])
+
     password = PasswordField(
-        "password",
-        [
-            DataRequired("Please enter a password")
-        ]
-    )
+        "password", validators=[DataRequired()])
+
     confirmPassword = PasswordField(
-        'confirm password',
-        [
-            EqualTo(password, message='confirmed passwords must match')
-        ]
+        'confirm password', validators=[DataRequired()]
     )
+
     submit = SubmitField('submit')
 
 
 class loginToAccount(FlaskForm):
     username = StringField(
-        "username",
-        [
-            DataRequired(message="Enter a valid username")
-        ]
-    )
+        "username", validators=[DataRequired()])
     password = PasswordField(
-        "password",
-        [
-            DataRequired("Please your password")
-        ]
-    )
-
+        "password", validators=[DataRequired()])
     submit = SubmitField('submit')
 
 
 class createShip(FlaskForm):
     shipname = StringField(
-        "shipname",
-        [
-            DataRequired(message="Enter a valid shipname")
-        ]
-    )
+        "shipname", validators=[DataRequired()])
     colour = SelectField(u'colour', choices=COLOUR_CHOICES)
 
-    crew = StringField(
-        "crew",
-        [
-            DataRequired(message="Select your crew")
-        ]
-    )
+    crew = TextAreaField(
+        "crew", validators=[DataRequired()])
 
+    submit = SubmitField('submit')
+
+
+class deleteAccount(FlaskForm):
+    username = StringField(
+        "username", validators=[DataRequired()])
+    password = PasswordField(
+        "password", validators=[DataRequired()])
+    confirmPassword = PasswordField(
+        'confirm password', validators=[DataRequired()]
+    )
+    submit = SubmitField('submit')
+
+
+class ChangePassword(FlaskForm):
+    username = StringField(
+        "username", validators=[DataRequired()])
+    password = PasswordField(
+        "password", validators=[DataRequired()])
+    newpassword = PasswordField(
+        "new password", validators=[DataRequired()])
     submit = SubmitField('submit')
