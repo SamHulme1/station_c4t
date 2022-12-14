@@ -21,7 +21,7 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class=" n-icon fa-brands fa-space-awesome"></i></a>
             <ul class="right hide-on-med-and-down">
                 {% if session["user"] %}
-                <li class="glow-font-nav"><a href="{{ url_for('get_citizens') }}">Create a ship</a></li>
+                <li class="glow-font-nav"><a href="{{ url_for('build_ship') }}">Create a ship</a></li>
                 <li class="glow-font-nav"><a href="{{ url_for('get_ships') }}">My ships</a></li>
                 <li class="glow-font-nav"><a href="{{ url_for('logout') }}">Logout</a></li>
                 <li class="glow-font-nav"><a href="{{ url_for('myaccount') }}">My Account</a></li>
@@ -35,7 +35,7 @@
     <ul class="sidenav" id="mobile-demo">
         {% if session["user"] %}
         <li class="glow-font-nav"><a href="{{ url_for('index') }}">Home</a></li>
-        <li class="glow-font-nav"><a href="{{ url_for('get_citizens') }}">Create a ship</a></li>
+        <li class="glow-font-nav"><a href="{{ url_for('build_ship') }}">Create a ship</a></li>
         <li class="glow-font-nav"><a href="{{ url_for('get_ships') }}">My ships</a></li>
         <li class="glow-font-nav"><a href="{{ url_for('logout') }}">Logout</a></li>
         <li class="glow-font-nav"><a href="{{ url_for('myaccount') }}">My Account</a></li>
