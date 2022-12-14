@@ -1,96 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-fluid">
-    <div class="row">
+        {% for ship in userShips %}
         <div class="col s12">
-            {% for ship in userShips %}
-            <div class="container-fluid center-align area-style">
+            <div class="container-fluid center-align ship-area">
                 <div class="row">
-                    {% for crewData in ship.ShipCrew %}
-                    {% if loop.index == 1 %}
-                    <div class="col s4 ship-crew">
-                        <h3 class="glow-font-medium text-bg">Crew Member One: </h2>
-                        <button class="collapse">
-                            <img src="{{crewData.img}}" alt="{{crewData.name}}" class="ctz-img-hover ship-img">
-                        </button>
-                        <div class="content glow-font-medium">
-                            <ul>
-                                <li>Name: {{crewData.name}}</li>
-                                <li>Job: {{crewData.job}}</li>
-                                <li>Fur: {{crewData.fur}}</li>
-                                <li>Unique Feature: {{crewData.uniqueFeature}}</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <span class="col s4">
+                    <span class="col s6">
                         <h3 class="glow-font-large text-bg"> Ship Name: {{ ship.shipname }} </h3>
                     </span>
-                    {% elif loop.index == 2 %}
-                    <div class="col s4 ship-crew">
-                        <h3 class="glow-font-medium text-bg">Crew Member Two: </h2>
-                        <button class="collapse">
-                            <img src="{{crewData.img}}" alt="{{crewData.name}}" class="ctz-img-hover ship-img">
-                        </button>
-                        <div class="content glow-font-medium">
-                            <ul>
-                                <li>Name: {{crewData.name}}</li>
-                                <li>Job: {{crewData.job}}</li>
-                                <li>Fur: {{crewData.fur}}</li>
-                                <li>Unique Feature: {{crewData.uniqueFeature}}</li>
-                            </ul>
-                        </div>
-                    </div>
+                    <span class="col s6">
+                        <h3 class="glow-font-large text-bg"> Ship Captain: {{ ship.captain }} </h3>
+                    </span>
                 </div>
-                <div class="container-fluid ship-wrapper">
-                    <div class="row">
-                        <div class="col s12">
-                            <i class="fa-brands fa-space-awesome spaceship {{ship.shipcolour}}"></i>
-                        </div>
-                    </div>
-                </div>
-                {% elif loop.index == 3 %}
                 <div class="row">
-                    <div class="col s4 ship-crew">
-                        <h3 class="glow-font-medium text-bg">Crew Member Three: </h2>
-                        <button class="collapse">
-                            <img src="{{crewData.img}}" alt="{{crewData.name}}" class="ctz-img-hover ship-img">
-                        </button>
-                        <div class="content glow-font-medium">
-                            <ul>
-                                <li>Name: {{crewData.name}}</li>
-                                <li>Job: {{crewData.job}}</li>
-                                <li>Fur: {{crewData.fur}}</li>
-                                <li>Unique Feature: {{crewData.uniqueFeature}}</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col s4">
-                        <h4 class="glow-font-medium text-bg"> Ship Captain: {{ ship.captain }} </h4>
-                    </div>
-                    {% elif loop.index == 4 %}
-                    <div class="col s4 ship-crew">
-                        <h3 class="glow-font-medium text-bg">Crew Member Four: </h2>
-                        <button class="collapse">
-                            <img src="{{crewData.img}}" alt="{{crewData.name}}" class="ctz-img-hover ship-img">
-                        </button>
-                        <div class="content glow-font-medium">
-                            <ul>
-                                <li>Name: {{crewData.name}}</li>
-                                <li>Job: {{crewData.job}}</li>
-                                <li>Fur: {{crewData.fur}}</li>
-                                <li>Unique Feature: {{crewData.uniqueFeature}}</li>
-                            </ul>
-                        </div>
+                    <div class="col s12">
+                        <i class="fa-brands fa-space-awesome spaceship {{ship.shipcolour}}"></i>
                     </div>
                 </div>
-                {% endif %}
-                {% endfor %}
+                {% for crewData in ship.ShipCrew %}
+                <div class="row">
+                    <div class="col s3 ship-crew">
+                        <h3 class="glow-font-medium text-bg">Crew Member {{loop.index}}: </h2>
+                            <button class="collapse">
+                                <img src="{{crewData.img}}" alt="{{crewData.name}}" class="ctz-img-hover ship-img">
+                            </button>
+                            <div class="content glow-font-medium">
+                                <ul>
+                                    <li>Name: {{crewData.name}}</li>
+                                    <li>Job: {{crewData.job}}</li>
+                                    <li>Fur: {{crewData.fur}}</li>
+                                    <li>Unique Feature: {{crewData.uniqueFeature}}</li>
+                                </ul>
+                            </div>
+                    </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-    {% endfor %}
 </div>
-</div>
+{% endfor %}
+<div class="container center-align">
+    <div class="row">
+        <div class="col s12">
+            <h3 class="glow-font-medium"> Not seeing any ships to create one, <a href="{{ url_for('get_citizens') }}">click here</a> </h3>
+        </div>
+    </div>
 </div>
 <script src="/static/scripts/js/ships.js"></script>
 {% endblock %}
