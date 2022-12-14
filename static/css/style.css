@@ -179,6 +179,13 @@ button:focus {
     margin-bottom: 2em;
 }
 
+#account-img{
+    border-radius: 50%;
+    width: 40%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
 .logo {
     font-size: 2em;
     color: white;

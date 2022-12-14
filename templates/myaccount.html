@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container area-style center-align">
+    <div class="row">
+        <div class="col s12">
+            <h2 class="glow-font-large">My Account</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <img src="https://images.nightcafe.studio/jobs/RzogiCzkr92cWwvEZHDf/RzogiCzkr92cWwvEZHDf--3--ttj0b.jpg?tr=w-1600,c-at_max"
+            alt="signin-img" id="signin-img">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h4 class="glow-font-medium">Manage Account</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s4">
+            <button class="login-button glow-font-medium"><a href="{{ url_for('delete_account') }}">Delete Account</a></button>
+        </div>
+        <div class="col s4">
+            <button class="login-button glow-font-medium"><a href="{{ url_for('change_password') }}">Change Password</a></button>
+        </div>
+        <div class="col s4">
+            <button class="login-button glow-font-medium"><a href="{{ url_for('logout') }}">Logout</a></button>
+        </div>
+    </div>
+</div>
+{% endblock %}
