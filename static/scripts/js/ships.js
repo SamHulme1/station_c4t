@@ -4,6 +4,7 @@ function getShipCol(){
     /*
     get the elements with the classes of spaceship and ship colour
     iterate through all html spaceships
+    add a colour class to the spaceships based off data recieved from database
      */
     for (let i = 0; i < ships.length; i++) {
         let ship = ships[i];
