@@ -1,20 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container area-style center-align">
+<div class="container-fluid area-style center-align">
     <div class="row">
         <div class="col s12">
             <h2 class="glow-font-large">Welcome to SpaceStation C4t</h2>
-            <p class="glow-font-medium">On this site you can manage and build your own spaceship, to get started please create an account or signin</p>
+            <p class="glow-font-medium">On this site you can manage and build your own spaceship, to get started please sign up or login</p>
         </div>
     </div>
     <div class="row">
         <div class="col s12">
             <div class="container-fluid">
+                <!-- hero image -->
                 <img src="https://images.nightcafe.studio/jobs/j9WoOl4XirO8iCxNyDHV/j9WoOl4XirO8iCxNyDHV--4--zrb9b_2x.jpg?tr=w-1600,c-at_max" alt="cats-fighting-in-space" id="hero-img">
             </div>
         </div>
     </div>
     <div class="row">
+        <!-- buttons to navigate to signup/login -->
         <div class="col s6">
             <button class="login-button glow-font-medium"><a href="{{ url_for('create_account') }}">Sign Up</a></button>
         </div>

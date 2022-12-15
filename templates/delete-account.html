@@ -1,27 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
+<!-- delete account form -->
 <form class="col s10 offset-s1" method="POST" action="{{ url_for('delete_account') }}">
     <div class="container form-style">
         <div class="center-align">
             <div>
                 <div class="col s12">
+                    <div class="row"><h2 class="glow-font-large">Delete Account</h2></div>
+                    <img src="https://images.nightcafe.studio/jobs/bpm6xOOrPDyLeo0ZhCM7/bpm6xOOrPDyLeo0ZhCM7--3--eqxrn.jpg?tr=w-1600,c-at_max" alt="delete-account-image" id="delete-account-img">
                     <div class="container-fluid center-align">
                         <div class="row">
                             <fieldset class="col s8 offset-s2">
                                 {{ form.username.label }}
-                                {{ form.username}}
+                                {{ form.username (placeholder="sam20")}}
                             </fieldset>
                         </div>
                         <div class="row">
                             <fieldset class="col s8 offset-s2">
                                 {{ form.password.label }}
-                                {{ form.password }}
+                                {{ form.password (placeholder="12345")}}
                             </fieldset>
                         </div>
                         <div class="row">
                             <fieldset class="col s8 offset-s2">
                                 {{ form.confirmPassword.label }}
-                                {{ form.confirmPassword }}
+                                {{ form.confirmPassword (placeholder="12345")}}
                             </fieldset>
                         </div>
                         <div class="row">
@@ -33,7 +36,6 @@
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </form>
 {% endblock %}

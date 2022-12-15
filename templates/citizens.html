@@ -7,29 +7,31 @@
         </div>
     </div>
 </div>
-<div class="container form-style">
+<div class="container-fluid form-style">
     <div class="row">
-        {% for pirates in citizens %}
-            <div class="col s3 m3 l3">
+        {% for cats in citizens %}
+            <div class="col s4 m3 l3">
                 <ul>
                     <li>
+                        <!-- buttons to select cats for crew -->
                         <button class="collapse">
-                            <img src="{{pirates.img_src}}" alt="{{pirates.name}}" class="center-align ctz-img ctz-img-hover">
+                            <img src="{{cats.img_src}}" alt="{{cats.name}}" class="center-align ctz-img ctz-img-hover">
                         </button>
+                        <!-- button content -->
                         <div class="content">
                             <ul class="glow-font-small">
-                                {% if pirates.uniquef == null%}
-                                <li>Name: <span class="cat-name">{{pirates.name}}</span></li>
-                                <li>Job: <span class="cat-job">{{pirates.job}}</span></li>
-                                <li>Fur: <span class="cat-fur">{{pirates.fur}}</span></li>
+                                {% if cats.uniquef == null%}
+                                <li>Name: <span class="cat-name">{{cats.name}}</span></li>
+                                <li>Job: <span class="cat-job">{{cats.job}}</span></li>
+                                <li>Fur: <span class="cat-fur">{{cats.fur}}</span></li>
                                 <li>unique Feature: <span class="cat-uniquef">No unique feature</span></li>
-                                <button class="addToCrew">Add</button>
+                                <button class="add-to-crew-btn">Add</button>
                                     {% else %}
-                                <li>Name: <span class="cat-name">{{pirates.name}}</span></li>
-                                <li>Job: <span class="cat-job">{{pirates.job}}</span></li>
-                                <li>Fur: <span class="cat-fur">{{pirates.fur}}</span></li>
-                                <li>unique Feature: <span class="cat-uniquef">{{pirates.uniquef}}</span></li>
-                                <button class="addToCrew">Add</button>
+                                <li>Name: <span class="cat-name">{{cats.name}}</span></li>
+                                <li>Job: <span class="cat-job">{{cats.job}}</span></li>
+                                <li>Fur: <span class="cat-fur">{{cats.fur}}</span></li>
+                                <li>unique Feature: <span class="cat-uniquef">{{cats.uniquef}}</span></li>
+                                <button class="add-to-crew-btn">Add</button>
                                 {% endif %}
                             </ul>
                         </div>
@@ -39,6 +41,7 @@
         {% endfor %}
     </div>
 </div>
+<!-- crew preview area -->
 <div class="container-fluid form-style">
     <div class="row">
         <h3 class="glow-font-large center-align">Crew Preview</h3>
@@ -46,11 +49,13 @@
     </div>
     <div class="row">
         <div class = "col s12 center-align">
+            <!-- crew preview buttons to pass info to hidden crew field and reset preview -->
             <button id="confirm-crew-btn" class="input-button">Confirm</button>
             <button id="reset-crew-btn" class="input-button">Reset</button>
         </div>
     </div>
 </div>
+<!-- build ship form -->
 <form method="post" action="{{ url_for('build_ship') }}" class="form-style">
     <fieldset class="col s8 offset-s2">
         {{ form.shipname.label }}
@@ -58,8 +63,10 @@
     </fieldset>
     <fieldset class="col s8 offset-s2">
         {{ form.colour.label }}
+        <span class="sr-only">color selection dropdown </span>
         {{ form.colour }}
     </fieldset>
+    <!-- hidden crew area below -->
     <fieldset class="col s8 offset-s2 crew-field">
         {{form.crew.label}}
         {{form.crew}}

@@ -1,50 +1,52 @@
 {% extends "base.html" %}
 {% block content %}
         {% for ship in userShips %}
-        <div class="col s12">
-            <div class="container-fluid center-align ship-area">
-                <div class="row">
-                    <span class="col s6">
-                        <h3 class="glow-font-large text-bg"> Ship Name: {{ ship.shipname }} </h3>
-                    </span>
-                    <span class="col s6">
-                        <h3 class="glow-font-large text-bg"> Ship Captain: {{ ship.captain }} </h3>
-                    </span>
+        <!-- ship display area -->
+        <div class="container-fluid center-align ship-area">
+            <div class="row">
+                <span class="col s6">
+                    <h3 class="glow-font-large text-bg"> Ship Name: {{ ship.shipname }} </h3>
+                </span>
+                <span class="col s6">
+                    <h3 class="glow-font-large text-bg"> Ship Captain: {{ ship.captain }} </h3>
+                </span>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <i class="fa-brands fa-space-awesome spaceship {{ship.shipcolour}}"></i>
                 </div>
-                <div class="row">
-                    <div class="col s12">
-                        <i class="fa-brands fa-space-awesome spaceship {{ship.shipcolour}}"></i>
-                    </div>
+            </div>
+            <!-- display ship crew -->
+            {% for crewData in ship.ShipCrew %}
+            <div class="row">
+                <div class="col s6 m3 ship-crew">
+                    <h3 class="glow-font-medium text-bg">Crew Member {{loop.index}}: </h2>
+                        <button class="collapse">
+                            <img src="{{crewData.img}}" alt="{{crewData.name}}" class="ctz-img-hover ship-img">
+                        </button>
+                        <div class="content glow-font-medium">
+                            <ul>
+                                <li>Name: {{crewData.name}}</li>
+                                <li>Job: {{crewData.job}}</li>
+                                <li>Fur: {{crewData.fur}}</li>
+                                <li>Unique Feature: {{crewData.uniqueFeature}}</li>
+                            </ul>
+                        </div>
                 </div>
-                {% for crewData in ship.ShipCrew %}
-                <div class="row">
-                    <div class="col s3 ship-crew">
-                        <h3 class="glow-font-medium text-bg">Crew Member {{loop.index}}: </h2>
-                            <button class="collapse">
-                                <img src="{{crewData.img}}" alt="{{crewData.name}}" class="ctz-img-hover ship-img">
-                            </button>
-                            <div class="content glow-font-medium">
-                                <ul>
-                                    <li>Name: {{crewData.name}}</li>
-                                    <li>Job: {{crewData.job}}</li>
-                                    <li>Fur: {{crewData.fur}}</li>
-                                    <li>Unique Feature: {{crewData.uniqueFeature}}</li>
-                                </ul>
-                            </div>
-                    </div>
-                    {% endfor %}
+                {% endfor %}
+            </div>
+        </div>
+        </div>
+        </div>
+        {% endfor %}
+        <!-- section which tells the user where to go if they havent yet created a ship -->
+        <div class="container-fluid center-align form-style margin-push alert-style">
+            <div class="row">
+                <div class="col s12">
+                    <h3 class="glow-font-medium"> Not seeing any ships, to create one, <a
+                            href="{{ url_for('build_ship') }}">click here</a> </h3>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-{% endfor %}
-<div class="container center-align">
-    <div class="row">
-        <div class="col s12">
-            <h3 class="glow-font-medium"> Not seeing any ships to create one, <a href="{{ url_for('get_citizens') }}">click here</a> </h3>
-        </div>
-    </div>
-</div>
-<script src="/static/scripts/js/ships.js"></script>
-{% endblock %}
+        <script src="/static/scripts/js/ships.js"></script>
+        {% endblock %}
