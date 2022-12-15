@@ -96,6 +96,9 @@ button:focus {
 .login-button {
     border-style: solid;
     background-color: rgb(39 21 50 / 47%);
+    width: 80%;
+    font-size: 0.5em;
+    font-family: "Audiowide", sans-serif;
     
 }
 
@@ -103,6 +106,13 @@ button:focus {
     color: white;
 }
 
+.button-style {
+    background-color:rgba(63, 200, 205, 1 );
+}
+
+.button-style:hover{
+    background-color: #464066;
+}
 /* container styles */
 .form-style {
     background-color: #8f7692;
@@ -328,31 +338,28 @@ nav .logo {
 
 /* media screens */
 
-@media (min-width: 900px){
-    .glow-font-small{
-        font-size: 2em;
-    }
-    .glow-font-medium, label{
-        font-size: 2.5em;
+
+@media (max-width:482px){
+    #crew-preview img {
+        width: 5em;
     }
     .glow-font-large{
-        font-size: 4em;
+        font-size: 1.5em;
     }
-    .margin-push{
-        margin-bottom: 60vh;
+    .glow-font-medium, label{
+        font-size: 1em;
     }
     .glow-font-nav{
-        font-size: 4em;
+        font-size: 1.5em;
     }
-    nav ul a {
-        font-size: 0.3em;
+    .f-icon{
+        font-size: 1.5em;
     }
-
-    .select-wrapper input.select-dropdown, .input-button, #submit {
-        font-size: 3em;
+    .spaceship{
+        font-size: 8em;
     }
-    .logo {
-        font-size: 3em;
+    .glow-font-small{
+        font-size: 0.5em;
     }
 }
 
@@ -374,24 +381,65 @@ nav .logo {
     }
 }
 
-@media (max-width:482px){
-    #crew-preview img {
-        width: 5em;
+@media (min-width: 900px){
+    .login-button{
+        font-size: 2em;
     }
-    .glow-font-large{
+    #hero-img {
+        width:40%;
+    }
+    .glow-font-small{
         font-size: 1.5em;
     }
     .glow-font-medium, label{
-        font-size: 1em;
+        font-size: 2em;
+    }
+    .glow-font-large{
+        font-size: 4em;
+    }
+    .margin-push{
+        margin-bottom: 23vh;
     }
     .glow-font-nav{
-        font-size: 1.5em;
+        font-size: 4em;
     }
-    .f-icon{
-        font-size: 1.5em;
+    nav ul a {
+        font-size: 0.3em;
     }
-    .spaceship{
-        font-size: 8em;
+
+    #crew-preview img {
+        width:18em;
+    }
+
+    .select-wrapper input.select-dropdown, .input-button, #submit {
+        font-size: 2em;
+    }
+    .logo {
+        font-size: 3em;
     }
 }
 
+@media (min-width: 1800px){
+    .glow-font-small{
+        font-size: 2.5em;
+    }
+    .glow-font-medium, label{
+        font-size: 3em;
+    }
+    .glow-font-large{
+        font-size: 4em;
+    }
+    .glow-font-nav{
+        font-size: 4em;
+    }
+    nav ul a {
+        font-size: 0.7em;
+    }
+
+    .select-wrapper input.select-dropdown, .input-button, #submit, #username, #password, #confirmPassword, #shipname{
+        font-size: 2.5em;
+    }
+    .logo {
+        font-size: 4em;
+    }
+}

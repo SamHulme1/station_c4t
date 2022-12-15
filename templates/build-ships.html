@@ -7,10 +7,10 @@
         </div>
     </div>
 </div>
-<div class="container-fluid form-style">
+<div class="container form-style">
     <div class="row">
         {% for cats in citizens %}
-            <div class="col s4 m3 l3">
+            <div class="col s3 m3 l3">
                 <ul>
                     <li>
                         <!-- buttons to select cats for crew -->
@@ -25,15 +25,14 @@
                                 <li>Job: <span class="cat-job">{{cats.job}}</span></li>
                                 <li>Fur: <span class="cat-fur">{{cats.fur}}</span></li>
                                 <li>unique Feature: <span class="cat-uniquef">No unique feature</span></li>
-                                <li class="add-to-crew-btn button-style">Add</li>
                                     {% else %}
                                 <li>Name: <span class="cat-name">{{cats.name}}</span></li>
                                 <li>Job: <span class="cat-job">{{cats.job}}</span></li>
                                 <li>Fur: <span class="cat-fur">{{cats.fur}}</span></li>
                                 <li>unique Feature: <span class="cat-uniquef">{{cats.uniquef}}</span></li>
-                                <li class="add-to-crew-btn button-style">Add</li>
                                 {% endif %}
                             </ul>
+                            <button class="add-to-crew-btn login-button">Add</button>
                         </div>
                     </li>
                 </ul>
@@ -63,7 +62,6 @@
     </fieldset>
     <fieldset class="col s8 offset-s2">
         {{ form.colour.label }}
-        <span class="sr-only">color selection dropdown </span>
         {{ form.colour }}
     </fieldset>
     <!-- hidden crew area below -->

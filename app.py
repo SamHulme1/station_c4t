@@ -178,7 +178,7 @@ def build_ship():
             # a string to an array of objects
         return redirect(url_for("get_ships"))
     return render_template(
-        "citizens.html", citizens=citizens, form=form)
+        "build-ships.html", citizens=citizens, form=form)
 
 
 @app.route("/get_ships")

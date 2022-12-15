@@ -212,6 +212,8 @@ The site was designed using a non-relational database structure, the data is str
 19. [PyMongo](https://pymongo.readthedocs.io/en/stable/) To allow interaction with the database
 20. [Werkzeug](https://werkzeug.palletsprojects.com/en/2.2.x/) To generate and process passwords adding extra security
 21. [Materialize](https://materializecss.com/) To create site responsiveness and to create the navbar
+22. [Balsamiq](https://en.wikipedia.org/wiki/Balsamiq) To create wireframes
+23. [ExtendsClass](https://extendsclass.com/python-tester.html) To validate Python
 
 ---
 ## Deployment
@@ -225,6 +227,33 @@ The site was designed using a non-relational database structure, the data is str
 4. For each change that I made I used the git add . and commit commands
 5. I used git push to push the changes in Git to Github
 
+### The site was then deployed using heroku to make a copy of the site:
+1. head over to github, you'll need an account to make a clone/fork of the project
+2. Clone or fork the project by going to the projects repository on GitHub
+3. Click on the code dropdown and select GitHub CLI in local, copy the URL
+4. In gitpod open the git bash command line 
+5. Change the current directory to a location where you want to clone to
+6. Enter the Command git clone and paste your URL then press enter
+7. Install python dependencies by using the command pip install -r requirement.txt
+
+To connect your newly cloned site to Heroku youll need to first
+1. set up an env.py file in the root, make sure to include this file in the gitignore file though
+2. Add the following to the env file:
+    - os.environ.setdefault("IP", "0.0.0.0")
+    - os.environ.setdefault("PORT", "5000")
+    - os.environ.setdefault("SECRET_KEY", "A key of your choice")
+    - os.environ.setdefault("MONGO_URI", "mongodbURIlink")
+    - os.environ.setdefault("MONGO_DBNAME", "your database name")
+3. use the command pip freeze requirements.txt to install create file to contains dependencies
+4. Create a Procfile by entering the command echo web: python app.py
+5. Use git add, commit and push to send your created files across to github
+6. On Heroku create a new app then select deploy from GitHub, find your repository and then click connect 
+7. In the created app go to settings and click on reveal config vars
+8. Set these vars to be equal to the same values you added into your env file
+9. Create a new cluster in mongo db with 3 collections: users, ships and citizens
+10. Get you mongoDB collection string by clicking on connect your application, this is your MONGO_URI link
+11. Back on Heroku click on deploy, automatic deploy and select your branch. Enable automatic deployes
+12. If you see the message app deployed sucessfully well done! You have deployed your site.
 
 ## Testing 
 
@@ -319,26 +348,32 @@ Lighthouse scores:
 The final validator results:
 
 ---
-### Javascript Validation
+### Python Validation
 
-#### Game const and game-start 
-![]()
-
-
+![app-val-py](/static/readme-img/app-py-val.jpg)
+![forms-val-py](/static/readme-img/form-py-val.jpg)
 
 ---
 ### CSS Validation
-![]()
+![css-val](/static/readme-img/css-val.jpg)
 
----
 ### HTML Validation
-
-#### Game-start
-![]()
-
-#### index
-![]()
-
+![](/static/readme-img/css-val.jpg)
+![ships-val](/static/readme-img/userships-val.jpg)
+![index-val](/static/readme-img/index-val.jpg)
+![signup-val](/static/readme-img/signup-val.jpg)
+![login-val](/static/readme-img/login-val.jpg)
+![buildship-val](/static/readme-img/buildship-val.jpg)
+![change-password-val](/static/readme-img/change-password-val.jpg)
+![delete-accout-val](/static/readme-img/delete-account-val.jpg)
+![myaccout-val](/static/readme-img/myaccount-val.jpg)
+---
+### Javascript Validation
+![ships-val-js](/static/readme-img/ships-val.jpg)
+![scripts-val-js](/static/readme-img/scripts-val.jpg)
+- I tired removing the unused Materialized variable but the sidenav stops working completely if I do that 
+![citizens-val-js](/static/readme-img/citizens-val.jpg)
+- I left the warning in because I wasn't able to work out how to fix it without reworking the whole code. It does also say that it may and through my testing I haven't been able to find any evidence that it effects the program
 ---
 ### Manual Tests run on site
 
