@@ -1,7 +1,7 @@
 # Station C4t
 To see the live version of the site click [here!](https://stationc4t.herokuapp.com/)
 
-![mockup-image]()
+![mockup-image](/static/readme-img/station-mockup-img.jpg)
 
 ---
 ## Contents
@@ -13,6 +13,7 @@ To see the live version of the site click [here!](https://stationc4t.herokuapp.c
 ### [Design Choices](#design-choices-1) 
 ### [Wireframes](#wireframes-1)
 ### [Features](#features-1)
+### [Database](#database)
 ### [Technologies Used](#technologies-used-1)
 ### [Depolyment](#deployment) 
 ### [Testing](#testing-1) 
@@ -71,14 +72,15 @@ The website features visual and written content with clear methods for the user 
 
 ### Colors:
 
-![colours]()
+![colours-blue](/static/readme-img/color-palette-blue.jpg)
+![colours-purple](/static/readme-img/color-palette-purple.jpg)
 
-The colour pallete for the site came from images I generated in an Ai art generator. Other colours such as blacks and white were used to create contrast.
+The colour pallete for the site came from images I generated in an Ai art generator. Other colours such as blacks and white were used to create contrast. for the forms and inputs I used a purple colour palette, for the rest of the site I decided to use a muted blue colour palette
 
 ---
 ### Fonts
 
-![fonts]()
+![fonts](/static/readme-img/station-fonts.jpg)
 
 I used the font Audiowide across the site, this was because I thought the font was easiy to read and fitted in well with the space like theme I was creating. I also used font awesome to create the icons. If the Audiowide font doesn't load in I added a default san-serif font.
 
@@ -97,7 +99,7 @@ The site is designed to be responsive accross all screen sizes, Where there is l
 ---
 ## WireFrames: 
 
-![wireframe]()
+![wireframe](/static/readme-img/station-wf.jpg)
 
 ---
 ## Features: 
@@ -177,6 +179,10 @@ Because of the time restraint I had when developing this site there are a number
 - dependentsies are stored in requirement.txt
 - enviroment variables are stored in env.py
 
+---
+
+## Database
+The site was designed using a non-relational database structure, the data is structured into three different tables, users, ships and citizens. The ships table holds all the information for the users ships that are created. The users can access the ships they create via their username which is stored in session and has a realtionship with the ship captain field in the database. The citizens data is used to store information on the cat citizens. Which are used to build the users crew for their ships, this creates another relationship within the database. The user collection stores the users that have created accounts. The website uses this data to allow users to login, change their passwords and delete their accounts. 
 
 ## Technologies used: 
 
@@ -209,9 +215,6 @@ Because of the time restraint I had when developing this site there are a number
 
 ---
 ## Deployment
-
-### This site is deployed on Heroku. To delpl
-
 
 
 ### This site was developed using Git. Here is the development lifecycle:
@@ -321,8 +324,7 @@ The final validator results:
 #### Game const and game-start 
 ![]()
 
-#### Game index 
-![]()
+
 
 ---
 ### CSS Validation
@@ -340,20 +342,43 @@ The final validator results:
 ---
 ### Manual Tests run on site
 
+Below are a number of manual tests I've run towards the end of devlopment
+1. Do all the nav links work?
+- result: all the nav links work
+2. Do the footer links open in seperate tabs?
+- result: all the links open in seperate tabs
+3. Can I create an account?
+- result: I can create an account on the website, the user appears in the db
+4. Can I create a ship?
+- result: I can create a ship on the website, the ship appears in the db
+5. Can I change my password?
+- result: I can change my password on the db
+6. Can I delete my account: 
+- result: I can delete my account, however my ships arn't deleted
+- action: added python code to remove the users ships from the db when the user is deleted
+7. Can I view the data I create on the db?
+- result: I can view all the data I have created on the db
+
 
 ---
 
 ### Browser testing 
 
-The site has been tested on Chrome, Firefox, Safari and Microsoft Edge
+The site has been tested on Chrome, Firefox and Microsoft Edge 
 
 ---
 ## Bugs 
 
+1. flask validators arn't validating correctly on forms when validate_on_submit is used 
+- originally I thought the bug might have been caused by an incorrect instiallion of flask wtf. I was correct, after pip freezing requirements it installed correctly. However I had a number of issues with the validation in my forms. So I had to just use data required and use if POST and validate in my app.py file instead.
+
+2. Heroku doesn't connect to database correctly resulting in errors when on the deployed site, the error doesn't occur if I host the site locally in github.
+- I the issue was cause by a misscopied url to fix the issue I simply copied and pasted my url again and the site worked fine afterwards.
 
 ---
 ### Bugs Left in Code:
 
+1. On some of the forms you can sometimes submit them without all the data being entered. This occurs for the password field where I wanted to use the flask wtf equal to validation. However, to login you still have to have the correct username and password.
 
 ---
 ## Credits 
