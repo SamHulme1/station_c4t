@@ -1,4 +1,4 @@
-/* materialize sticky footer */
+/* body */
 body {
     display: flex;
     min-height: 100vh;
@@ -6,13 +6,14 @@ body {
     background-color: #5f9195;
   }
 
+/* body background images */
 .station-img{
     background : url(https://images.nightcafe.studio/jobs/69OGdj2T5jAyofEEW6Eh/69OGdj2T5jAyofEEW6Eh--4--dkdt4_4x.jpg?tr=w-1600,c-at_max);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    min-height: 15em;
+    min-height: 7em;
 }
 
 .station-img-2{
@@ -24,36 +25,12 @@ body {
     min-height: 15em;
 }
 
+/* form elements, inputs and buttons */
 input[type=text]:not(.browser-default),
 input[type=password]:not(.browser-default){
     border: none;
     height: 1em;
     margin:0;
-}
-
-.form-style {
-    background-color: #8f7692;
-    border: solid;
-    border-color: white;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-
-.con-icon{
-    font-size: 5em;
-}
-
-.control-panel {
-    background-color: rgb(39 21 50 / 47%);
-    border: solid;
-    border-color: white;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    border-radius: 2em;
 }
 
 fieldset {
@@ -67,10 +44,6 @@ label {
     color: white;
     font-family: "Audiowide", sans-serif;
     font-size: 20px;
-}
-
-.profile-img{
-    border-radius: 0%;
 }
 
 #submit {
@@ -90,22 +63,6 @@ label {
     border: white solid;
 }
 
-main {
-    flex: 1 0 auto;
-}
-
-#hero-img {
-    width:60%;
-    border-radius: 50%;
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-
-.ctz-img {
-    border-radius: 50%;
-    width:90%
-}
-
 .con-btn{
     background-color: #848988;
     border-radius: 2em;
@@ -114,49 +71,6 @@ main {
     width:7em;
 }
 
-.glow-font-nav {
-    font-family: "Audiowide", sans-serif;
-    color: black;
-    margin: 0px;
-    font-size: 1em;
-}
-
-.glow-font-large {
-    font-family: "Audiowide", sans-serif;
-    color: white;
-    margin: 0px;
-    font-size: 3em;
-}
-
-.logo {
-    font-family: "Audiowide", sans-serif;
-    color: black;
-    margin: 0px;
-    font-size: 3em;
-}
-
-.glow-font-medium {
-    font-family: "Audiowide", sans-serif;
-    color: white;
-    font-size: 1.5em;
-}
-
-.sidenav {
-    background-color: rgb(118 158 165);
-}
-
-.sidenav li>a {
-    font-size: 1em;
-}
-.content-bg{
-    background-color: rgba(0, 0, 0, 0.1 );
-}
-.glow-font-small {
-    font-family: "Audiowide", sans-serif;
-    color: white;
-    text-shadow: 1px 1px rgba(63, 200, 205, 1 );
-    font-size: 0.5em;
-}
 button:focus {
     outline: none;
     background-color: rgba(0, 0, 0, 0 );
@@ -172,7 +86,93 @@ button:focus {
     color: rgba(63, 200, 205, 1 );
 }
 
+.content {
+    display: none;
+    overflow: hidden;
+    background-color: rgba(63, 200, 205, 1 );
+    text-align: center;
+}
+
+.login-button {
+    border-style: solid;
+    background-color: rgb(39 21 50 / 47%);
+    
+}
+
+.login-button a {
+    color: white;
+}
+
+/* container styles */
+.form-style {
+    background-color: #8f7692;
+    border: solid;
+    border-color: white;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.content-bg{
+    background-color: rgba(0, 0, 0, 0.1 );
+}
+
+.text-bg {
+    background-color: rgba(0, 0, 0, 0.2 );
+}
+
+.area-style {
+    background-color: #8f7692;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: solid;
+    border-color: white;
+}
+
+.alert-style{
+    background-color: rgba(63, 200, 205, 1 );
+}
+
+/* icons */
+.con-icon{
+    font-size: 5em;
+}
+
+/* images */
+
+.profile-img{
+    border-radius: 0%;
+}
+
+
+#hero-img {
+    width:60%;
+    border-radius: 50%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.ctz-img {
+    border-radius: 50%;
+    width:90%
+}
+
 #signup-img{
+    border-radius: 50%;
+    width: 40%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+#delete-account-img{
+    border-radius: 50%;
+    width: 40%;
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+
+#change-password-img{
     border-radius: 50%;
     width: 40%;
     margin-top: 1em;
@@ -186,11 +186,6 @@ button:focus {
     margin-bottom: 2em;
 }
 
-.logo {
-    font-size: 2em;
-    color: white;
-}
-
 #signin-img{
     border-radius: 50%;
     width: 40%;
@@ -198,16 +193,79 @@ button:focus {
     margin-bottom: 2em;
 }
 
-.content {
-    display: none;
-    overflow: hidden;
-    background-color: rgba(63, 200, 205, 1 );
-    text-align: center;
-  }
-
-.active{
-    background-color: none;
+#crew-preview img {
+    width: 8em;
+    border-radius: 50%;
 }
+
+#captain-img {
+    width: 5%;
+}
+
+.ctz-img-hover:hover {
+    box-shadow: 5px 1px 5px 1px rgba(63, 200, 205, 1 );
+}
+
+.ship-img {
+    border-radius: 50%;
+    width:65%;
+}
+
+/* fonts */
+
+a {
+    color: white;
+}
+
+.glow-font-nav {
+    font-family: "Audiowide", sans-serif;
+    color: black;
+    margin: 0px;
+    font-size: 1em;
+}
+
+.glow-font-large {
+    font-family: "Audiowide", sans-serif;
+    color: black;
+    margin: 0px;
+    font-size: 3em;
+}
+
+.glow-font-small {
+    font-family: "Audiowide", sans-serif;
+    color: black;
+    text-shadow: 1px 1px rgba(63, 200, 205, 1 );
+    font-size: 0.5em;
+}
+
+.logo {
+    font-family: "Audiowide", sans-serif;
+    color: white;
+    margin: 0px;
+    font-size: 2em;
+}
+
+.glow-font-medium, label {
+    font-family: "Audiowide", sans-serif;
+    color: black;
+    font-size: 1.5em;
+}
+
+nav ul a {
+    color: white;
+    font-size: 2em;
+}
+
+
+/* navigation */
+.sidenav {
+    background-color: rgb(118 158 165);
+}
+
+.sidenav li>a {
+    font-size: 1em;
+}
+
 
 .footer {
     background-color: #2a475f;
@@ -223,20 +281,12 @@ nav .logo {
     padding: 0;
 }
 
-#crew-preview img {
-    width: 8em;
-    border-radius: 50%;
-}
-
+/* hidden class */
 .crew-field {
     display: none;
 }
 
-nav ul a {
-    color: black;
-    font-size: 2em;
-}
-
+/* spaceship styling*/
 .spaceship {
     font-size: 15em;
     padding: 5%;
@@ -247,27 +297,6 @@ nav ul a {
     background-color: #8f7692;
     border: solid;
     border-color: white;
-}
-#captain-img {
-    width: 5%;
-}
-
-.area-style {
-    background-color: #8f7692;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    border: solid;
-    border-color: white;
-}
-
-.ctz-img-hover:hover {
-    box-shadow: 5px 1px 5px 1px rgba(63, 200, 205, 1 );
-    background-color: none;
-}
-
-.ship-img {
-    border-radius: 50%;
-    width:65%;
 }
 
 .red-ship {
@@ -297,17 +326,72 @@ nav ul a {
     box-shadow: -1px 2px 30px 2px rgb(176 208 222);
 }
 
-.text-bg {
-    background-color: rgba(0, 0, 0, 0.2 );
+/* media screens */
+
+@media (min-width: 900px){
+    .glow-font-small{
+        font-size: 2em;
+    }
+    .glow-font-medium, label{
+        font-size: 2.5em;
+    }
+    .glow-font-large{
+        font-size: 4em;
+    }
+    .margin-push{
+        margin-bottom: 60vh;
+    }
+    .glow-font-nav{
+        font-size: 4em;
+    }
+    nav ul a {
+        font-size: 0.3em;
+    }
+
+    .select-wrapper input.select-dropdown, .input-button, #submit {
+        font-size: 3em;
+    }
+    .logo {
+        font-size: 3em;
+    }
 }
 
-.login-button {
-    border-style: solid;
-    background-color: rgb(39 21 50 / 47%);
-    
+@media (max-width: 630px){
+    .glow-font-small{
+        font-size: 1em;
+    }
+    .glow-font-medium, label{
+        font-size: 1.5em;
+    }
+    .glow-font-large{
+        font-size: 3em;
+    }
+    .margin-push{
+        margin-bottom: 45vh;
+    }
+    .glow-font-nav{
+        font-size: 1.5em;
+    }
 }
 
-.login-button a {
-    color: white;
+@media (max-width:482px){
+    #crew-preview img {
+        width: 5em;
+    }
+    .glow-font-large{
+        font-size: 1.5em;
+    }
+    .glow-font-medium, label{
+        font-size: 1em;
+    }
+    .glow-font-nav{
+        font-size: 1.5em;
+    }
+    .f-icon{
+        font-size: 1.5em;
+    }
+    .spaceship{
+        font-size: 8em;
+    }
 }
 
