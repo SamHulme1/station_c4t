@@ -80,7 +80,7 @@ def login():
                 # store user in local storage
                 # display message to user after login
                 session["user"] = request.form["username"]
-                flash(f"Welcome back captain")
+                flash("Welcome back captain")
                 return redirect(url_for("index"))
             else:
                 flash(
