@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+        <!-- signup form -->
         <form class="col s10 offset-s1" method="POST" action="{{ url_for('create_account') }}">
             <div class="container form-style">
                 <div class="center-align">
@@ -37,6 +38,7 @@
                         </div>
                     </div>
                     <div class="row">
+                        <!-- link for if the user has already signed up -->
                         <div class="col s12">
                             <h3 class="glow-font-medium"> Already a cat captain, <a href="{{ url_for('login') }}">click here</a> </h3>
                         </div>
