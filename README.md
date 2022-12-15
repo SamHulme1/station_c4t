@@ -415,6 +415,10 @@ The site has been tested on Chrome, Firefox and Microsoft Edge
 
 1. On some of the forms you can sometimes submit them without all the data being entered. This occurs for the password field where I wanted to use the flask wtf equal to validation. However, to login you still have to have the correct username and password.
 
+2. The dropdown for the colour selector stopped working but I didn't have enough time to figure out what went wrong with it. 
+
+3. CSS stlye bugs that I didn't have time to polish out 
+
 ---
 ## Credits 
 
