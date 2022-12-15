@@ -1,4 +1,3 @@
-const ships = document.getElementsByClassName("spaceship");
 document.addEventListener("load", getShipCol());
 function getShipCol(){
     /*
@@ -6,6 +5,7 @@ function getShipCol(){
     iterate through all html spaceships
     add a colour class to the spaceships based off data recieved from database
      */
+    let ships = document.getElementsByClassName("spaceship");
     for (let i = 0; i < ships.length; i++) {
         let ship = ships[i];
             if (ship.classList.contains("1")) {
