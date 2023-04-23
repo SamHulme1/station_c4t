@@ -291,6 +291,11 @@ nav .logo {
     padding: 0;
 }
 
+select {
+    display: block;
+    font-size: 1em;
+}
+
 /* hidden class */
 .crew-field {
     display: none;
@@ -352,31 +357,23 @@ nav .logo {
     .glow-font-nav{
         font-size: 1.5em;
     }
-    .f-icon{
-        font-size: 1.5em;
-    }
     .spaceship{
         font-size: 8em;
     }
     .glow-font-small{
-        font-size: 0.5em;
+        font-size: 0.8em;
     }
 }
 
-@media (max-width: 630px){
-    .glow-font-small{
-        font-size: 1em;
-    }
-    .glow-font-medium, label{
-        font-size: 1.5em;
-    }
-    .glow-font-large{
-        font-size: 3em;
-    }
+@media (min-width: 630px){
     .margin-push{
         margin-bottom: 45vh;
     }
     .glow-font-nav{
+        font-size: 1.5em;
+    }
+
+    .glow-font-small{
         font-size: 1.5em;
     }
 }
@@ -388,7 +385,7 @@ nav .logo {
     #hero-img {
         width:40%;
     }
-    .glow-font-small{
+    .glow-font-small, select{
         font-size: 1.5em;
     }
     .glow-font-medium, label{
@@ -420,14 +417,14 @@ nav .logo {
 }
 
 @media (min-width: 1800px){
-    .glow-font-small{
-        font-size: 2.5em;
+    .glow-font-small, select{
+        font-size: 2em;
     }
     .glow-font-medium, label{
-        font-size: 3em;
+        font-size: 2.5em;
     }
     .glow-font-large{
-        font-size: 4em;
+        font-size: 2.5em;
     }
     .glow-font-nav{
         font-size: 4em;
