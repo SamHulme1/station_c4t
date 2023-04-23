@@ -182,6 +182,8 @@ Because of the time restraint I had when developing this site there are a number
 ---
 
 ## Database
+![database-design-image](/static/readme-img/database-design-image.png)
+
 The site was designed using a non-relational database structure, the data is structured into three different tables, users, ships and citizens. The ships table holds all the information for the users ships that are created. The users can access the ships they create via their username which is stored in session and has a realtionship with the ship captain field in the database. The citizens data is used to store information on the cat citizens. Which are used to build the users crew for their ships, this creates another relationship within the database. The user collection stores the users that have created accounts. The website uses this data to allow users to login, change their passwords and delete their accounts. 
 
 ## Technologies used: 
@@ -214,6 +216,7 @@ The site was designed using a non-relational database structure, the data is str
 21. [Materialize](https://materializecss.com/) To create site responsiveness and to create the navbar
 22. [Balsamiq](https://en.wikipedia.org/wiki/Balsamiq) To create wireframes
 23. [ExtendsClass](https://extendsclass.com/python-tester.html) To validate Python
+24. [Lucid Charts](https://www.lucidchart.com/pages/landing?utm_source=google&utm_medium=cpc&utm_campaign=_chart_en_tier1_mixed_search_brand_exact_&km_CPC_CampaignId=1490375427&km_CPC_AdGroupID=137488435595&km_CPC_Keyword=lucid%20app&km_CPC_MatchType=e&km_CPC_ExtensionID=&km_CPC_Network=g&km_CPC_AdPosition=&km_CPC_Creative=598116882677&km_CPC_TargetID=kwd-302739930476&km_CPC_Country=1007464&km_CPC_Device=c&km_CPC_placement=&km_CPC_target=&gclid=CjwKCAjwrpOiBhBVEiwA_473dJDEe1yUjBWgqaUOEejFAxYO1y4d5EkSbOAmueSi97KPICXDWsynIxoCEsgQAvD_BwE) To design the database
 
 ---
 ## Deployment
@@ -416,9 +419,10 @@ The site has been tested on Chrome, Firefox and Microsoft Edge
 1. On some of the forms you can sometimes submit them without all the data being entered. This occurs for the password field where I wanted to use the flask wtf equal to validation. However, to login you still have to have the correct username and password.
 
 2. The dropdown for the colour selector stopped working but I didn't have enough time to figure out what went wrong with it. 
+SOLVED: The bug was caused by a style in Materialize which set all select boxes to be hidden, quite strange, that they would have such a style but I managed to figure it out. Through using the Developer Tools.
 
-3. CSS stlye bugs that I didn't have time to polish out 
-
+3. CSS style bugs that I didn't have time to polish out 
+SOLVED: There was two main bugs with some of text that caused the site to not be as responsive, as I would've like, to fix this I removed some of the text font size changes on media screens and created a new font size specifially for the description area. 
 ---
 ## Credits 
 
