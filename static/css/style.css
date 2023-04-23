@@ -365,6 +365,11 @@ select {
     }
 }
 
+@media (min-width: 1500px){
+    .glow-font-descriptions{
+        font-size: 2em;
+    }
+}
 @media (min-width: 630px){
     .margin-push{
         margin-bottom: 45vh;
